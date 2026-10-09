@@ -11,6 +11,8 @@ orquestração com Docker Compose e pipeline CI/CD no **GitHub Actions** com dep
 
 **Integrante:** Sidney — RM: _______
 
+**Repositório:** https://github.com/jrpietrafesa/cidades-inteligentes
+
 ---
 
 ## Endpoints
@@ -169,21 +171,34 @@ ENTRYPOINT ["sh", "-c", "exec java $JAVA_OPTS -jar /app/app.jar"]
 
 ## Prints do funcionamento
 
-> Capturas feitas a partir do primeiro run do pipeline no GitHub. Salvar as imagens em `docs/prints/`.
+Run do pipeline: https://github.com/jrpietrafesa/cidades-inteligentes/actions/runs/37866585748
+Imagem publicada: https://github.com/jrpietrafesa?tab=packages
 
-| # | Evidência | Arquivo |
-|---|---|---|
-| 1 | Run completo com os 4 jobs verdes (aba *Actions*) | ![pipeline](docs/prints/01-pipeline.png) |
-| 2 | Job *Build e testes* com o resumo dos testes | ![testes](docs/prints/02-testes.png) |
-| 3 | Imagem publicada em *Packages* (GHCR) | ![imagem](docs/prints/03-imagem-ghcr.png) |
-| 4 | Job *Deploy - staging* com smoke test OK | ![staging](docs/prints/04-deploy-staging.png) |
-| 5 | Aprovação manual do deploy de produção | ![aprovacao](docs/prints/05-aprovacao-producao.png) |
-| 6 | Job *Deploy - producao* com smoke test OK | ![producao](docs/prints/06-deploy-producao.png) |
-| 7 | `/api/info` em staging (8081) e produção (8082) | ![info](docs/prints/07-ambientes.png) |
-| 8 | `docker compose ps` com containers *healthy* | ![ps](docs/prints/08-compose-ps.png) |
+### Pipeline completo e testes
+Build e testes → imagem Docker → deploy staging → deploy produção, todos com sucesso. O resumo mostra os 8 testes (4 de integração e 4 unitários) sem falhas.
 
-Logs completos de cada deploy: artefatos `evidencias-staging` e `evidencias-production` do run.
-Link do run: _______
+![Pipeline completo](docs/prints/01-pipeline.png)
+
+### Imagem publicada no GitHub Container Registry
+![Imagem no GHCR](docs/prints/03-imagem-ghcr.png)
+
+### Deploy em staging (porta 8081)
+Smoke test com health `UP` (PostgreSQL), `"ambiente":"staging"`, medição acima da meta gerando alerta e `SMOKE TEST OK (staging)`.
+
+![Deploy staging](docs/prints/04-deploy-staging.png)
+
+### Aprovação manual do deploy de produção
+![Aprovação de produção](docs/prints/05-aprovacao-producao.png)
+
+### Deploy em produção (porta 8082)
+Mesma versão `97500e9` validada em staging, agora com `"ambiente":"production"` e `SMOKE TEST OK (production)`.
+
+![Deploy produção](docs/prints/06-deploy-producao.png)
+
+### Artefatos gerados
+JAR, relatórios de testes, registro do build Docker e as evidências de cada ambiente (logs, `docker compose ps` e `/api/info`).
+
+![Artefatos](docs/prints/07-artefatos.png)
 
 ---
 
@@ -228,6 +243,6 @@ cidades-esg-inteligentes/
 | Dockerfile funcional | ☑ |
 | docker-compose.yml ou arquivos Kubernetes | ☑ |
 | Pipeline com etapas de build, teste e deploy | ☑ |
-| README.md com instruções e prints | ☐ (inserir prints em `docs/prints/`) |
-| Documentação técnica com evidências (PDF ou PPT) | ☐ (inserir prints no PDF) |
-| Deploy realizado nos ambientes staging e produção | ☐ (após o primeiro run no GitHub) |
+| README.md com instruções e prints | ☑ |
+| Documentação técnica com evidências (PDF ou PPT) | ☑ |
+| Deploy realizado nos ambientes staging e produção | ☑ |
