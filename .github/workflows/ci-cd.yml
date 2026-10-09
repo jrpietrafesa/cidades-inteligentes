@@ -1,0 +1,205 @@
+name: CI/CD - Cidades ESG Inteligentes
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+# Evita deploys concorrentes do mesmo branch
+concurrency:
+  group: ci-cd-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  JAVA_VERSION: '21'
+  REGISTRY: ghcr.io
+
+jobs:
+
+  # ------------------------------------------------------------
+  # 1) BUILD + TESTES AUTOMATIZADOS
+  # ------------------------------------------------------------
+  build-test:
+    name: Build e testes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar JDK ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: maven
+
+      - name: Compilar, testar e empacotar (mvn verify)
+        run: mvn -B verify
+
+      - name: Resumo dos testes
+        if: always()
+        run: |
+          echo "## Resultado dos testes" >> "$GITHUB_STEP_SUMMARY"
+          for f in target/surefire-reports/*.txt; do
+            [ -f "$f" ] && sed -n '4p' "$f" >> "$GITHUB_STEP_SUMMARY"
+          done
+
+      - name: Publicar relatorios de teste
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorios-testes
+          path: target/surefire-reports/
+
+      - name: Publicar JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: cidades-esg-jar
+          path: target/cidades-esg.jar
+
+  # ------------------------------------------------------------
+  # 2) IMAGEM DOCKER -> GitHub Container Registry
+  # ------------------------------------------------------------
+  docker-image:
+    name: Build e push da imagem Docker
+    needs: build-test
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      image: ${{ steps.meta.outputs.image }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Definir nome da imagem (minusculo)
+        id: meta
+        run: |
+          IMAGE="${REGISTRY}/${GITHUB_REPOSITORY,,}"
+          echo "image=${IMAGE}:${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+          echo "repo=${IMAGE}" >> "$GITHUB_OUTPUT"
+
+      - name: Login no GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configurar Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build e push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          build-args: APP_VERSION=${{ github.sha }}
+          tags: |
+            ${{ steps.meta.outputs.image }}
+            ${{ steps.meta.outputs.repo }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # ------------------------------------------------------------
+  # 3) DEPLOY EM STAGING (automatico)
+  # ------------------------------------------------------------
+  deploy-staging:
+    name: Deploy - staging
+    needs: docker-image
+    # Runner self-hosted mantem o ambiente no ar apos o job;
+    # sem a variavel DEPLOY_RUNNER, usa runner do GitHub (ambiente efemero).
+    runs-on: ${{ vars.DEPLOY_RUNNER || 'ubuntu-latest' }}
+    environment:
+      name: staging
+      url: http://localhost:8081/api/info
+    permissions:
+      contents: read
+      packages: read
+    env:
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD || 'staging_senha_padrao' }}
+      APP_VERSION: ${{ github.sha }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Login no GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Subir ambiente staging (Compose)
+        run: bash ./scripts/deploy.sh staging "${{ needs.docker-image.outputs.image }}"
+
+      - name: Smoke test staging
+        run: bash ./scripts/smoke-test.sh http://localhost:8081 staging
+
+      - name: Coletar evidencias
+        if: always()
+        run: |
+          mkdir -p evidencias
+          docker compose -p esg-staging --env-file deploy/.env.staging ps > evidencias/staging-ps.txt
+          docker compose -p esg-staging --env-file deploy/.env.staging logs --no-color > evidencias/staging-logs.txt
+          curl -s http://localhost:8081/api/info > evidencias/staging-info.json || true
+
+      - name: Publicar evidencias
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencias-staging
+          path: evidencias/
+
+  # ------------------------------------------------------------
+  # 4) DEPLOY EM PRODUCAO (aprovacao manual via environment)
+  # ------------------------------------------------------------
+  deploy-production:
+    name: Deploy - producao
+    needs: [ docker-image, deploy-staging ]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ${{ vars.DEPLOY_RUNNER || 'ubuntu-latest' }}
+    environment:
+      name: production
+      url: http://localhost:8082/api/info
+    permissions:
+      contents: read
+      packages: read
+    env:
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD || 'producao_senha_padrao' }}
+      APP_VERSION: ${{ github.sha }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Login no GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Subir ambiente producao (Compose)
+        run: bash ./scripts/deploy.sh production "${{ needs.docker-image.outputs.image }}"
+
+      - name: Smoke test producao
+        run: bash ./scripts/smoke-test.sh http://localhost:8082 production
+
+      - name: Coletar evidencias
+        if: always()
+        run: |
+          mkdir -p evidencias
+          docker compose -p esg-production --env-file deploy/.env.production ps > evidencias/production-ps.txt
+          docker compose -p esg-production --env-file deploy/.env.production logs --no-color > evidencias/production-logs.txt
+          curl -s http://localhost:8082/api/info > evidencias/production-info.json || true
+
+      - name: Publicar evidencias
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencias-production
+          path: evidencias/

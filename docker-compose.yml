@@ -1,0 +1,61 @@
+# ============================================================
+# Orquestracao: API Spring Boot + PostgreSQL
+# O mesmo arquivo atende local, staging e producao; o ambiente
+# e definido pelo --env-file e pelo nome do projeto (-p).
+#   local:      docker compose up -d --build
+#   staging:    ./scripts/deploy.sh staging
+#   producao:   ./scripts/deploy.sh production
+# ============================================================
+services:
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-cidades_esg}
+      POSTGRES_USER: ${DB_USER:-esg}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Defina DB_PASSWORD no arquivo .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - backend
+
+  app:
+    image: ${APP_IMAGE:-cidades-esg:local}
+    build:
+      context: .
+      args:
+        APP_VERSION: ${APP_VERSION:-local}
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      APP_ENV: ${APP_ENV:-local}
+      APP_VERSION: ${APP_VERSION:-local}
+      DB_URL: jdbc:postgresql://db:5432/${DB_NAME:-cidades_esg}
+      DB_USER: ${DB_USER:-esg}
+      DB_PASSWORD: ${DB_PASSWORD}
+      JPA_DDL_AUTO: ${JPA_DDL_AUTO:-update}
+      JAVA_OPTS: ${JAVA_OPTS:--XX:MaxRAMPercentage=75}
+    ports:
+      - "${APP_PORT:-8080}:8080"
+    networks:
+      - backend
+      - frontend
+
+networks:
+  # Rede interna: o banco NAO fica exposto fora do Docker
+  backend:
+    internal: true
+  # Rede de borda: apenas a API publica a porta
+  frontend:
+
+volumes:
+  # Dados persistentes do PostgreSQL (um volume por ambiente/projeto)
+  pgdata:
