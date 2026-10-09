@@ -9,7 +9,7 @@ o pilar **Ambiental (E)** do ESG aplicado à gestão urbana.
 O projeto foi preparado para um ciclo DevOps completo: testes automatizados, imagem Docker,
 orquestração com Docker Compose e pipeline CI/CD no **GitHub Actions** com deploy em **staging** e **produção**.
 
-**Integrante:** Sidney — RM: _______
+**Integrante:** Sidney — RM: 562855
 
 **Repositório:** https://github.com/jrpietrafesa/cidades-inteligentes
 
