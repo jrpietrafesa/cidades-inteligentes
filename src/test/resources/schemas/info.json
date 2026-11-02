@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Identificacao da aplicacao",
+  "type": "object",
+  "properties": {
+    "aplicacao": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ambiente": {
+      "type": "string",
+      "minLength": 1
+    },
+    "versao": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "aplicacao",
+    "ambiente",
+    "versao"
+  ],
+  "additionalProperties": false
+}

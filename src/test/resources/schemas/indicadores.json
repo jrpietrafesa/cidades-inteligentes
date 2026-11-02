@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Indicadores ESG",
+  "type": "object",
+  "properties": {
+    "edificiosMonitorados": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "medicoesRegistradas": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "consumoTotalKwh": {
+      "type": "number",
+      "minimum": 0
+    },
+    "emissaoEstimadaKgCo2": {
+      "type": "number",
+      "minimum": 0
+    },
+    "alertasAbertos": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "alertasResolvidos": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "edificiosMonitorados",
+    "medicoesRegistradas",
+    "consumoTotalKwh",
+    "emissaoEstimadaKgCo2",
+    "alertasAbertos",
+    "alertasResolvidos"
+  ],
+  "additionalProperties": false
+}

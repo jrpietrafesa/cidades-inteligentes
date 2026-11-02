@@ -1,0 +1,116 @@
+name: Testes automatizados (BDD e API)
+
+on:
+  push:
+    branches-ignore: [ evidencias-testes ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  JAVA_VERSION: '21'
+
+jobs:
+
+  # ------------------------------------------------------------
+  # 1) Aplicacao real em porta aleatoria + H2 em memoria
+  # ------------------------------------------------------------
+  testes-h2:
+    name: Testes - H2
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: maven
+
+      - name: Executar testes (mvn verify)
+        shell: bash
+        run: |
+          mkdir -p evidencias
+          mvn -B verify 2>&1 | tee evidencias/execucao-h2.log
+
+      - name: Publicar relatorios
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorios-h2
+          path: |
+            evidencias/
+            target/cucumber-reports/
+            target/surefire-reports/
+
+  # ------------------------------------------------------------
+  # 2) API e PostgreSQL em containers
+  # ------------------------------------------------------------
+  testes-docker:
+    name: Testes - Docker e PostgreSQL
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Executar testes (Docker Compose)
+        shell: bash
+        run: |
+          mkdir -p evidencias
+          bash scripts/run-tests.sh docker 2>&1 | tee evidencias/execucao-docker.log
+
+      - name: Publicar relatorios
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorios-docker
+          path: |
+            evidencias/
+            relatorios-testes/
+
+  # ------------------------------------------------------------
+  # 3) Resumo da execucao e guarda das evidencias
+  # ------------------------------------------------------------
+  evidencias:
+    name: Consolidar evidencias
+    needs: [ testes-h2, testes-docker ]
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: evidencias
+
+      - name: Resumo da execucao
+        shell: bash
+        run: |
+          echo "## Testes automatizados" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Ambiente | Cenarios | Falhas | Erros |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|---|---|" >> "$GITHUB_STEP_SUMMARY"
+          for par in "H2:relatorios-h2/target/cucumber-reports" "PostgreSQL:relatorios-docker/relatorios-testes"; do
+            nome="${par%%:*}"; dir="evidencias/${par#*:}"
+            xml=$(ls "$dir"/cucumber.xml 2>/dev/null || true)
+            [ -n "$xml" ] || { echo "| $nome | sem relatorio | - | - |" >> "$GITHUB_STEP_SUMMARY"; continue; }
+            linha=$(grep -m1 '<testsuite' "$xml")
+            t=$(sed -E 's/.* tests="([0-9]+)".*/\1/' <<<"$linha")
+            f=$(sed -E 's/.* failures="([0-9]+)".*/\1/' <<<"$linha")
+            e=$(sed -E 's/.* errors="([0-9]+)".*/\1/' <<<"$linha")
+            echo "| $nome | $t | $f | $e |" >> "$GITHUB_STEP_SUMMARY"
+          done
+
+      - name: Guardar evidencias na branch evidencias-testes
+        shell: bash
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          cd evidencias
+          echo "${GITHUB_SHA}" > commit-testado.txt
+          echo "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" > execucao.txt
+          git init -q -b evidencias-testes
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Evidencias da execucao ${GITHUB_RUN_ID} [skip ci]"
+          git push --force "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" evidencias-testes

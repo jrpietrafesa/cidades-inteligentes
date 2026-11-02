@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Alerta",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "edificioId": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "edificio": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dataReferencia": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "consumoKwh": {
+      "type": "number",
+      "minimum": 0
+    },
+    "limiteKwh": {
+      "type": "number",
+      "minimum": 0
+    },
+    "status": {
+      "enum": [
+        "ABERTO",
+        "RESOLVIDO"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "edificioId",
+    "edificio",
+    "dataReferencia",
+    "consumoKwh",
+    "limiteKwh",
+    "status"
+  ],
+  "additionalProperties": false
+}

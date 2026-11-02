@@ -1,0 +1,41 @@
+# Sobe API + PostgreSQL e executa os testes contra a aplicacao real.
+#   docker compose -f docker-compose.test.yml up --build --abort-on-container-exit --exit-code-from testes
+services:
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: cidades_esg
+      POSTGRES_USER: esg
+      POSTGRES_PASSWORD: esg_teste
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U esg -d cidades_esg"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  app:
+    build:
+      context: .
+    environment:
+      APP_ENV: test
+      DB_URL: jdbc:postgresql://db:5432/cidades_esg
+      DB_USER: esg
+      DB_PASSWORD: esg_teste
+    depends_on:
+      db:
+        condition: service_healthy
+
+  testes:
+    build:
+      context: .
+      dockerfile: Dockerfile.tests
+    environment:
+      BASE_URL: http://app:8080
+    volumes:
+      - ./relatorios-testes:/workspace/target/cucumber-reports
+    depends_on:
+      app:
+        condition: service_healthy

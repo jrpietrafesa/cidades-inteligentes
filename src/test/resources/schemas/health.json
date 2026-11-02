@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Saude da aplicacao",
+  "type": "object",
+  "properties": {
+    "status": {
+      "enum": [
+        "UP",
+        "DOWN",
+        "OUT_OF_SERVICE",
+        "UNKNOWN"
+      ]
+    }
+  },
+  "required": [
+    "status"
+  ],
+  "additionalProperties": true
+}
