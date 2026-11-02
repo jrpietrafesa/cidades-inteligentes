@@ -65,7 +65,7 @@ public class MonitoramentoEnergeticoService {
         BigDecimal consumoDia = zeroSeNulo(
                 medicoes.somarConsumo(edificioId, dia.atStartOfDay(), dia.plusDays(1).atStartOfDay()));
 
-        boolean excedeu = consumoDia.compareTo(edificio.getLimiteDiarioKwh()) > 0;
+        boolean excedeu = consumoDia.compareTo(edificio.getLimiteDiarioKwh()) >= 0;
         if (excedeu) {
             AlertaConsumo alerta = alertas.findByEdificioIdAndDataReferencia(edificioId, dia)
                     .orElseGet(() -> new AlertaConsumo(edificio, dia, consumoDia, edificio.getLimiteDiarioKwh()));

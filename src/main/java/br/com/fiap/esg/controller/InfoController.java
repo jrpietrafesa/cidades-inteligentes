@@ -20,7 +20,6 @@ public class InfoController {
     public Map<String, String> info() {
         return Map.of(
                 "aplicacao", "Cidades ESG Inteligentes",
-                "ambiente", ambiente,
-                "versao", versao);
+                "ambiente", ambiente);
     }
 }
