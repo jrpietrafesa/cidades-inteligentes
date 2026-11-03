@@ -70,8 +70,10 @@ bash scripts/smoke-test.sh http://localhost:8082 production
 ### Executar os testes sem Docker
 
 ```bash
-mvn verify     # testes unitários (Mockito) + integração (Spring Boot + H2)
+mvn verify     # testes unitários, integração, BDD, API e contrato (H2 em memória)
 ```
+
+Veja também a seção [Testes automatizados](#testes-automatizados-bdd-api-e-contrato).
 
 ---
 
@@ -89,7 +91,7 @@ pull request ─► [1] apenas (valida o código antes do merge)
 
 | Etapa | O que faz |
 |---|---|
-| **1. Build e testes** | JDK 21 com cache Maven; `mvn -B verify` compila, executa os 8 testes (4 unitários + 4 de integração) e gera o JAR. Relatórios do Surefire e o JAR são publicados como artefatos; o resumo aparece na página do run. |
+| **1. Build e testes** | JDK 21 com cache Maven; `mvn -B verify` compila, executa os 44 testes (31 cenários BDD, 5 de contrato, 4 unitários e 4 de integração) e gera o JAR. Relatórios do Surefire e o JAR são publicados como artefatos; o resumo aparece na página do run. |
 | **2. Imagem Docker** | Build multi-stage com Buildx e cache do GitHub; push para o GitHub Container Registry com as tags `<sha curto>` e `latest`. |
 | **3. Deploy staging** | Environment `staging`. Faz pull da imagem exata do commit, sobe API + PostgreSQL com `deploy/.env.staging` (porta 8081) e aguarda os health checks (`--wait`). Em seguida o smoke test valida health, ambiente (`staging`) e o fluxo de negócio (medição acima da meta gera alerta). Logs e status dos containers viram artefato `evidencias-staging`. |
 | **4. Deploy produção** | Só roda depois de staging verde e na `main`. Environment `production` com **revisor obrigatório**: o pipeline pausa até a aprovação. Mesmo processo com `deploy/.env.production` (porta 8082) e smoke test esperando `production`. |
@@ -202,11 +204,76 @@ JAR, relatórios de testes, registro do build Docker e as evidências de cada am
 
 ---
 
+## Testes automatizados (BDD, API e contrato)
+
+Os testes validam o comportamento da API com **BDD em Gherkin** (arquivos `.feature` em português), executado pelo **Cucumber**. As chamadas HTTP e as validações são feitas com **RestAssured**, e os contratos das respostas com **JSON Schema**.
+
+| Tipo | Quantidade | Onde está |
+|---|---|---|
+| Cenários BDD (positivos e negativos) | 31 | `src/test/resources/features/` |
+| Contratos JSON Schema | 10 | `src/test/resources/schemas/` |
+| Testes que provam que os contratos reprovam respostas erradas | 5 | `src/test/java/.../bdd/ContratoJsonSchemaTest.java` |
+| Passos Java (step definitions) | 3 classes | `src/test/java/br/com/fiap/esg/bdd/` |
+
+### Cobertura das APIs
+
+Todos os cenários validam o status code. A coluna de contrato indica o JSON Schema aplicado.
+
+| Endpoint | Status testados | Contrato |
+|---|---|---|
+| `POST /api/edificios` | 201, 400 | `edificio.json`, `erro.json` |
+| `GET /api/edificios` | 200 | `edificio-lista.json` |
+| `GET /api/edificios/{id}` | 200, 400, 404 | `edificio.json`, `erro.json` |
+| `POST /api/edificios/{id}/medicoes` | 201, 400, 404 | `medicao.json`, `erro.json` |
+| `GET /api/edificios/{id}/medicoes` | 200, 404 | `medicao-lista.json`, `erro.json` |
+| `GET /api/alertas` | 200 | `alerta-lista.json` |
+| `PATCH /api/alertas/{id}/resolver` | 200, 404 | `alerta.json`, `erro.json` |
+| `GET /api/indicadores` | 200 | `indicadores.json` |
+| `GET /api/info` | 200 | `info.json` |
+| `GET /actuator/health` | 200 | `health.json` |
+
+### Como executar
+
+**Opção 1: local, sem Docker.** Requer JDK 21 e Maven 3.9. A aplicação real sobe em porta aleatória, com H2 em memória.
+
+```bash
+bash scripts/run-tests.sh
+# Relatório: target/cucumber-reports/cucumber.html
+```
+
+**Opção 2: com Docker.** Requer apenas Docker. Sobe a API e o PostgreSQL em containers e executa os testes contra eles.
+
+```bash
+bash scripts/run-tests.sh docker
+# Relatório: relatorios-testes/cucumber.html
+```
+
+Para rodar parte dos cenários, use as tags dos arquivos `.feature` (`@positivo`, `@negativo`, `@ambiental`, `@governanca`, `@edificios`, `@medicoes`, `@alertas`, `@indicadores`, `@sistema`):
+
+```bash
+mvn test -Dtest=BddApiTest -Dcucumber.filter.tags="@negativo"
+```
+
+Para testar uma API que já esteja no ar, informe o endereço em `BASE_URL`. O cenário de identificação espera `APP_ENV=test` nessa API.
+
+```bash
+BASE_URL=http://localhost:8080 mvn test -Dtest=BddApiTest
+```
+
+**Opção 3: no GitHub Actions.** O workflow `.github/workflows/testes-automatizados.yml` roda a cada push nos dois ambientes e publica os relatórios como artefatos.
+
+### Relação com ESG
+
+- **Ambiental (`@ambiental`):** meta diária de consumo, acúmulo de leituras, geração de alertas e emissão estimada de CO₂.
+- **Governança (`@governanca`):** rastreabilidade dos alertas (consumo, meta, data e status), histórico de medições e rejeição de dados inválidos.
+
+---
+
 ## Tecnologias utilizadas
 
 - **Linguagem/Framework:** Java 21, Spring Boot 3.3 (Web, Data JPA, Validation, Actuator)
 - **Banco de dados:** PostgreSQL 16 (execução) e H2 (testes)
-- **Testes:** JUnit 5, Mockito, AssertJ, Spring MockMvc
+- **Testes:** Cucumber (Gherkin), RestAssured, JSON Schema Validator, JUnit 5, Mockito, AssertJ, Spring MockMvc
 - **Build:** Maven 3.9
 - **Containers:** Docker (multi-stage, Alpine JRE), Docker Compose v2
 - **CI/CD:** GitHub Actions, GitHub Environments (aprovação manual), GitHub Container Registry
@@ -220,17 +287,20 @@ JAR, relatórios de testes, registro do build Docker e as evidências de cada am
 cidades-esg-inteligentes/
 ├── Dockerfile
 ├── docker-compose.yml
+├── Dockerfile.tests         # imagem que executa os testes
+├── docker-compose.test.yml  # API + PostgreSQL + testes
 ├── .dockerignore
 ├── .env.example
 ├── pom.xml
 ├── README.md
-├── .github/workflows/ci-cd.yml
+├── .github/workflows/      # ci-cd.yml e testes-automatizados.yml
 ├── deploy/                 # variáveis de staging e produção
-├── scripts/                # deploy.sh, smoke-test.sh, seed.sh
+├── scripts/                # deploy.sh, smoke-test.sh, seed.sh, run-tests.sh
 ├── docs/                   # documentação PDF e prints
 └── src/
     ├── main/java/br/com/fiap/esg/   # model, repository, service, controller, dto, exception
-    └── test/java/br/com/fiap/esg/   # testes unitários e de integração
+    ├── test/java/br/com/fiap/esg/   # testes unitários, de integração e passos BDD
+    └── test/resources/              # features Gherkin e contratos JSON Schema
 ```
 
 ---
