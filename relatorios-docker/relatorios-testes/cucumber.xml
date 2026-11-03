@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="4.641" tests="31" skipped="0" failures="0" errors="0">
+<testcase classname="Gestão de alertas de consumo" name="Consultar alerta aberto com dados de rastreabilidade" time="2.144">
+<system-out><![CDATA[
+Dado que existe um edifício "Secretaria do Meio Ambiente" com meta diária de 100.00 kWh.passed
+E que foi registrada uma medição de 150.00 kWh em "2026-10-05T09:00:00".....passed
+Quando consulto os alertas abertos..........................................passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o contrato "alerta-lista.json"..................passed
+E o alerta do edifício deve registrar consumo de 150.00 kWh contra a meta de 100.00 kWh na data "2026-10-05".passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de alertas de consumo" name="Nova medição no mesmo dia atualiza o alerta existente" time="0.121">
+<system-out><![CDATA[
+Dado que existe um edifício "Secretaria do Meio Ambiente" com meta diária de 100.00 kWh.passed
+E que foi registrada uma medição de 150.00 kWh em "2026-10-05T09:00:00".....passed
+Dado que foi registrada uma medição de 40.00 kWh em "2026-10-05T15:00:00"...passed
+Quando consulto os alertas abertos..........................................passed
+Então o status da resposta deve ser 200.....................................passed
+E o alerta do edifício deve registrar consumo de 190.00 kWh contra a meta de 100.00 kWh na data "2026-10-05".passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de alertas de consumo" name="Resolver um alerta aberto" time="0.159">
+<system-out><![CDATA[
+Dado que existe um edifício "Secretaria do Meio Ambiente" com meta diária de 100.00 kWh.passed
+E que foi registrada uma medição de 150.00 kWh em "2026-10-05T09:00:00".....passed
+Dado que o alerta do edifício foi aberto....................................passed
+Quando resolvo o alerta do edifício.........................................passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o contrato "alerta.json"........................passed
+E o campo "status" deve ser "RESOLVIDO".....................................passed
+E o edifício não deve ter alerta aberto.....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Gestão de alertas de consumo" name="Resolver um alerta que não existe" time="0.107">
+<system-out><![CDATA[
+Dado que existe um edifício "Secretaria do Meio Ambiente" com meta diária de 100.00 kWh.passed
+E que foi registrada uma medição de 150.00 kWh em "2026-10-05T09:00:00".....passed
+Quando resolvo um alerta que não existe.....................................passed
+Então o status da resposta deve ser 404.....................................passed
+E a resposta deve respeitar o contrato "erro.json"..........................passed
+E a mensagem de erro deve citar "nao encontrado"............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Cadastro de edifícios públicos monitorados" name="Cadastrar edifício com meta ESG válida" time="0.07">
+<system-out><![CDATA[
+Quando cadastro o edifício "Hospital Municipal Norte" do tipo "HOSPITAL" em "Sao Paulo" com meta diária de 500.00 kWh.passed
+Então o status da resposta deve ser 201.....................................passed
+E a resposta deve respeitar o contrato "edificio.json"......................passed
+E o campo "id" deve estar preenchido........................................passed
+E o campo "nome" deve ser "Hospital Municipal Norte"........................passed
+E o campo "tipo" deve ser "HOSPITAL"........................................passed
+E o campo "limiteDiarioKwh" deve valer 500.00...............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Cadastro de edifícios públicos monitorados" name="Consultar um edifício cadastrado" time="0.07">
+<system-out><![CDATA[
+Dado que existe um edifício "EMEF Jardim Verde" com meta diária de 100.00 kWh.passed
+Quando consulto o edifício cadastrado.......................................passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o contrato "edificio.json"......................passed
+E o campo "nome" deve ser "EMEF Jardim Verde"...............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Cadastro de edifícios públicos monitorados" name="Listar os edifícios monitorados" time="0.066">
+<system-out><![CDATA[
+Dado que existe um edifício "Prefeitura Central" com meta diária de 300.00 kWh.passed
+Quando listo os edifícios...................................................passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o contrato "edificio-lista.json"................passed
+E a lista deve conter o edifício cadastrado.................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Cadastro de edifícios públicos monitorados" name="Rejeitar cadastro inválido: &lt;motivo&gt; - #1.1: Rejeitar cadastro inválido: nome em branco" time="0.051">
+<system-out><![CDATA[
+Quando tento cadastrar um edifício com nome "", cidade "Sao Paulo", tipo "ESCOLA" e meta "100".passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o contrato "erro.json"..........................passed
+E a mensagem de erro deve citar "nome"......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Cadastro de edifícios públicos monitorados" name="Rejeitar cadastro inválido: &lt;motivo&gt; - #1.2: Rejeitar cadastro inválido: cidade em branco" time="0.028">
+<system-out><![CDATA[
+Quando tento cadastrar um edifício com nome "Escola", cidade "", tipo "ESCOLA" e meta "100".passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o contrato "erro.json"..........................passed
+E a mensagem de erro deve citar "cidade"....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Cadastro de edifícios públicos monitorados" name="Rejeitar cadastro inválido: &lt;motivo&gt; - #1.3: Rejeitar cadastro inválido: tipo em branco" time="0.025">
+<system-out><![CDATA[
+Quando tento cadastrar um edifício com nome "Escola", cidade "Sao Paulo", tipo "" e meta "100".passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o contrato "erro.json"..........................passed
+E a mensagem de erro deve citar "tipo"......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Cadastro de edifícios públicos monitorados" name="Rejeitar cadastro inválido: &lt;motivo&gt; - #1.4: Rejeitar cadastro inválido: meta zerada" time="0.066">
+<system-out><![CDATA[
+Quando tento cadastrar um edifício com nome "Escola", cidade "Sao Paulo", tipo "ESCOLA" e meta "0".passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o contrato "erro.json"..........................passed
+E a mensagem de erro deve citar "limiteDiarioKwh"...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Cadastro de edifícios públicos monitorados" name="Rejeitar cadastro inválido: &lt;motivo&gt; - #1.5: Rejeitar cadastro inválido: meta negativa" time="0.034">
+<system-out><![CDATA[
+Quando tento cadastrar um edifício com nome "Escola", cidade "Sao Paulo", tipo "ESCOLA" e meta "-10".passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o contrato "erro.json"..........................passed
+E a mensagem de erro deve citar "limiteDiarioKwh"...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Cadastro de edifícios públicos monitorados" name="Rejeitar cadastro inválido: &lt;motivo&gt; - #1.6: Rejeitar cadastro inválido: meta ausente" time="0.027">
+<system-out><![CDATA[
+Quando tento cadastrar um edifício com nome "Escola", cidade "Sao Paulo", tipo "ESCOLA" e meta "ausente".passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o contrato "erro.json"..........................passed
+E a mensagem de erro deve citar "limiteDiarioKwh"...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Cadastro de edifícios públicos monitorados" name="Rejeitar corpo com JSON malformado" time="0.035">
+<system-out><![CDATA[
+Quando envio um cadastro de edifício com JSON malformado....................passed
+Então o status da resposta deve ser 400.....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Cadastro de edifícios públicos monitorados" name="Consultar um edifício que não existe" time="0.032">
+<system-out><![CDATA[
+Quando consulto um edifício que não existe..................................passed
+Então o status da resposta deve ser 404.....................................passed
+E a resposta deve respeitar o contrato "erro.json"..........................passed
+E a mensagem de erro deve citar "nao encontrado"............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Cadastro de edifícios públicos monitorados" name="Consultar um edifício com identificador inválido" time="0.022">
+<system-out><![CDATA[
+Quando consulto um edifício com identificador "abc".........................passed
+Então o status da resposta deve ser 400.....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Indicadores ambientais da cidade" name="Indicadores refletem uma medição acima da meta" time="0.221">
+<system-out><![CDATA[
+Dado que anotei os indicadores atuais.......................................passed
+E que existe um edifício "Biblioteca Municipal" com meta diária de 100.00 kWh.passed
+Quando registro uma medição de 150.00 kWh em "2026-10-06T10:00:00"..........passed
+E consulto os indicadores...................................................passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o contrato "indicadores.json"...................passed
+E o indicador "edificiosMonitorados" deve ter variado 1.....................passed
+E o indicador "medicoesRegistradas" deve ter variado 1......................passed
+E o indicador "consumoTotalKwh" deve ter variado 150.00.....................passed
+E o indicador "alertasAbertos" deve ter variado 1...........................passed
+E a emissão estimada deve corresponder ao consumo total pelo fator 0.0385 kgCO2 por kWh.passed
+]]></system-out>
+</testcase>
+<testcase classname="Indicadores ambientais da cidade" name="Resolver alerta atualiza os indicadores" time="0.167">
+<system-out><![CDATA[
+Dado que existe um edifício "Centro Cultural" com meta diária de 100.00 kWh.passed
+E que foi registrada uma medição de 150.00 kWh em "2026-10-06T10:00:00".....passed
+E que anotei os indicadores atuais..........................................passed
+E que o alerta do edifício foi resolvido....................................passed
+Quando consulto os indicadores..............................................passed
+Então o status da resposta deve ser 200.....................................passed
+E o indicador "alertasAbertos" deve ter variado -1..........................passed
+E o indicador "alertasResolvidos" deve ter variado 1........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Registro de medições de consumo energético" name="Consumo dentro da meta não gera alerta" time="0.088">
+<system-out><![CDATA[
+Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh.passed
+Quando registro uma medição de 300.00 kWh em "2026-10-01T08:00:00"..........passed
+Então o status da resposta deve ser 201.....................................passed
+E a resposta deve respeitar o contrato "medicao.json".......................passed
+E o campo "kwh" deve valer 300.00...........................................passed
+E o campo "alertaGerado" deve ser "false"...................................passed
+E o edifício não deve ter alerta aberto.....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Registro de medições de consumo energético" name="Consumo exatamente igual à meta não gera alerta" time="0.059">
+<system-out><![CDATA[
+Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh.passed
+Quando registro uma medição de 500.00 kWh em "2026-10-01T08:00:00"..........passed
+Então o status da resposta deve ser 201.....................................passed
+E o campo "alertaGerado" deve ser "false"...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Registro de medições de consumo energético" name="Consumo acumulado do dia acima da meta gera alerta" time="0.092">
+<system-out><![CDATA[
+Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh.passed
+Dado que foi registrada uma medição de 300.00 kWh em "2026-10-01T08:00:00"..passed
+Quando registro uma medição de 250.00 kWh em "2026-10-01T18:00:00"..........passed
+Então o status da resposta deve ser 201.....................................passed
+E a resposta deve respeitar o contrato "medicao.json".......................passed
+E o campo "alertaGerado" deve ser "true"....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Registro de medições de consumo energético" name="Medições de dias diferentes não se somam" time="0.083">
+<system-out><![CDATA[
+Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh.passed
+Dado que foi registrada uma medição de 300.00 kWh em "2026-10-01T08:00:00"..passed
+Quando registro uma medição de 250.00 kWh em "2026-10-02T08:00:00"..........passed
+Então o status da resposta deve ser 201.....................................passed
+E o campo "alertaGerado" deve ser "false"...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Registro de medições de consumo energético" name="Medição sem data usa o horário atual" time="0.084">
+<system-out><![CDATA[
+Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh.passed
+Quando registro uma medição de 10.00 kWh sem informar a data................passed
+Então o status da resposta deve ser 201.....................................passed
+E a resposta deve respeitar o contrato "medicao.json".......................passed
+E o campo "dataHora" deve estar preenchido..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Registro de medições de consumo energético" name="Listar o histórico de medições do edifício" time="0.117">
+<system-out><![CDATA[
+Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh.passed
+Dado que foi registrada uma medição de 10.00 kWh em "2026-10-01T08:00:00"...passed
+E que foi registrada uma medição de 20.00 kWh em "2026-10-03T08:00:00"......passed
+E que foi registrada uma medição de 30.00 kWh em "2026-10-02T08:00:00"......passed
+Quando listo as medições do edifício........................................passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o contrato "medicao-lista.json".................passed
+E a lista deve ter 3 medições, da mais recente para a mais antiga...........passed
+]]></system-out>
+</testcase>
+<testcase classname="Registro de medições de consumo energético" name="Rejeitar medição inválida: &lt;motivo&gt; - #1.1: Rejeitar medição inválida: consumo zerado" time="0.044">
+<system-out><![CDATA[
+Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh.passed
+Quando tento registrar uma medição com valor "0"............................passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o contrato "erro.json"..........................passed
+E a mensagem de erro deve citar "kwh".......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Registro de medições de consumo energético" name="Rejeitar medição inválida: &lt;motivo&gt; - #1.2: Rejeitar medição inválida: consumo negativo" time="0.052">
+<system-out><![CDATA[
+Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh.passed
+Quando tento registrar uma medição com valor "-5"...........................passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o contrato "erro.json"..........................passed
+E a mensagem de erro deve citar "kwh".......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Registro de medições de consumo energético" name="Rejeitar medição inválida: &lt;motivo&gt; - #1.3: Rejeitar medição inválida: consumo ausente" time="0.047">
+<system-out><![CDATA[
+Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh.passed
+Quando tento registrar uma medição com valor "ausente"......................passed
+Então o status da resposta deve ser 400.....................................passed
+E a resposta deve respeitar o contrato "erro.json"..........................passed
+E a mensagem de erro deve citar "kwh".......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Registro de medições de consumo energético" name="Registrar medição em edifício que não existe" time="0.052">
+<system-out><![CDATA[
+Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh.passed
+Quando registro uma medição em um edifício que não existe...................passed
+Então o status da resposta deve ser 404.....................................passed
+E a resposta deve respeitar o contrato "erro.json"..........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Registro de medições de consumo energético" name="Listar medições de edifício que não existe" time="0.04">
+<system-out><![CDATA[
+Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh.passed
+Quando listo as medições de um edifício que não existe......................passed
+Então o status da resposta deve ser 404.....................................passed
+E a resposta deve respeitar o contrato "erro.json"..........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Identificação e saúde da aplicação" name="Consultar a identificação da aplicação" time="0.028">
+<system-out><![CDATA[
+Quando consulto a identificação da aplicação................................passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o contrato "info.json"..........................passed
+E o campo "aplicacao" deve ser "Cidades ESG Inteligentes"...................passed
+E o campo "ambiente" deve ser "test"........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Identificação e saúde da aplicação" name="Consultar a saúde da aplicação" time="0.024">
+<system-out><![CDATA[
+Quando consulto a saúde da aplicação........................................passed
+Então o status da resposta deve ser 200.....................................passed
+E a resposta deve respeitar o contrato "health.json"........................passed
+E o campo "status" deve ser "UP"............................................passed
+]]></system-out>
+</testcase>
+</testsuite>

@@ -1,0 +1,817 @@
+ Image postgres:16-alpine Pulling 
+ 9f477227db48 Pulling fs layer 0B
+ 42065dcfea93 Pulling fs layer 0B
+ 22df74fd5323 Pulling fs layer 0B
+ f121f7f3dec1 Pulling fs layer 0B
+ 768bbab50810 Pulling fs layer 0B
+ d3f6cab92edc Pulling fs layer 0B
+ d982e6c592c4 Pulling fs layer 0B
+ 7b229517ed22 Pulling fs layer 0B
+ a735dce41235 Pulling fs layer 0B
+ 7ea8819886f9 Pulling fs layer 0B
+ 911527e7800c Pulling fs layer 0B
+ 42065dcfea93 Download complete 0B
+ f121f7f3dec1 Downloading 20.97MB
+ 768bbab50810 Download complete 0B
+ d3f6cab92edc Download complete 0B
+ 7b229517ed22 Download complete 0B
+ 911527e7800c Download complete 0B
+ 9f477227db48 Download complete 0B
+ d982e6c592c4 Download complete 0B
+ 7ea8819886f9 Download complete 0B
+ a735dce41235 Download complete 0B
+ 22df74fd5323 Download complete 0B
+ 7b229517ed22 Extracting 1B
+ f121f7f3dec1 Downloading 44.04MB
+ b3e0ec4a3ace Download complete 0B
+ 9f4aa3a44541 Download complete 0B
+ 7b229517ed22 Extracting 1B
+ f121f7f3dec1 Downloading 72.35MB
+ 768bbab50810 Pull complete 0B
+ 7b229517ed22 Pull complete 0B
+ d982e6c592c4 Pull complete 0B
+ a735dce41235 Pull complete 0B
+ f121f7f3dec1 Downloading 104.9MB
+ 42065dcfea93 Pull complete 0B
+ f121f7f3dec1 Download complete 0B
+ f121f7f3dec1 Extracting 1B
+ f121f7f3dec1 Extracting 1B
+ f121f7f3dec1 Extracting 1B
+ f121f7f3dec1 Extracting 1B
+ f121f7f3dec1 Extracting 1B
+ f121f7f3dec1 Extracting 1B
+ f121f7f3dec1 Extracting 1B
+ f121f7f3dec1 Extracting 1B
+ f121f7f3dec1 Extracting 1B
+ f121f7f3dec1 Extracting 1B
+ f121f7f3dec1 Extracting 1B
+ f121f7f3dec1 Extracting 2B
+ f121f7f3dec1 Extracting 2B
+ f121f7f3dec1 Extracting 2B
+ f121f7f3dec1 Extracting 2B
+ f121f7f3dec1 Extracting 2B
+ d3f6cab92edc Pull complete 0B
+ 911527e7800c Pull complete 0B
+ 9f477227db48 Pull complete 0B
+ 7ea8819886f9 Pull complete 0B
+ 22df74fd5323 Pull complete 0B
+ f121f7f3dec1 Pull complete 0B
+ Image postgres:16-alpine Pulled 
+ Image cidades-inteligentes-app Building 
+ Image cidades-inteligentes-testes Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.10kB done
+#1 DONE 0.0s
+
+#2 [testes internal] load build definition from Dockerfile.tests
+#2 DONE 0.0s
+
+#3 [app internal] load build definition from Dockerfile
+#3 transferring dockerfile: 1.48kB done
+#3 DONE 0.0s
+
+#2 [testes internal] load build definition from Dockerfile.tests
+#2 transferring dockerfile: 317B done
+#2 DONE 0.0s
+
+#4 [auth] library/maven:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#5 [auth] library/eclipse-temurin:pull token for registry-1.docker.io
+#5 DONE 0.0s
+
+#6 [testes internal] load metadata for docker.io/library/maven:3.9-eclipse-temurin-21
+#6 ...
+
+#7 [app internal] load metadata for docker.io/library/eclipse-temurin:21-jre-alpine
+#7 DONE 0.3s
+
+#6 [testes internal] load metadata for docker.io/library/maven:3.9-eclipse-temurin-21
+#6 DONE 0.3s
+
+#8 [app internal] load .dockerignore
+#8 transferring context: 130B done
+#8 DONE 0.0s
+
+#9 [testes internal] load build context
+#9 transferring context: 68.38kB 0.0s done
+#9 DONE 0.0s
+
+#10 [app 1/5] FROM docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320
+#10 resolve docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320 0.0s done
+#10 sha256:405aa165b3ac61a5d93c2398a95cdd881401cceda86849dde23f6293310b70c0 154B / 154B 0.0s done
+#10 sha256:a466b9e11010eac13b4d1ac50894b683c5fbc95be50dc4dedcdec9c979f98f96 851B / 851B 0.0s done
+#10 sha256:1bf7f7b7d02f74fa2a38d4325c84dcaf0e91faae8e30f221d86c841b0c4f6647 9.36MB / 9.36MB 0.1s done
+#10 sha256:1bf7f7b7d02f74fa2a38d4325c84dcaf0e91faae8e30f221d86c841b0c4f6647 9.36MB / 9.36MB 0.1s done
+#10 sha256:49cf9009e0af3adc96baebc58dcde451a6858961e0c027ba7f7ba3075e7240ba 2.46kB / 2.46kB 0.0s done
+#10 sha256:f1408710f65cf2f33054c8d5b33ab1f5684c9ffcfc81bc01e550faec04fa9d0b 157B / 157B 0.0s done
+#10 sha256:bd0bb49686d38ffc090c15f30d472cdb0354fb8cf46c03f21f4f2764d4e4efcd 24.96MB / 24.96MB 0.2s done
+#10 sha256:bd0bb49686d38ffc090c15f30d472cdb0354fb8cf46c03f21f4f2764d4e4efcd 24.96MB / 24.96MB 0.2s done
+#10 sha256:07bad0cccfa15aac629986ee3771c057c7690f9ce635dda839f652e54c911318 17.83MB / 158.12MB 0.2s
+#10 sha256:c5b9275bc0db751e2d75dfe63b7fe841f35111d72e930782de032d5d13d45ab1 12.58MB / 22.95MB 0.2s
+#10 sha256:07bad0cccfa15aac629986ee3771c057c7690f9ce635dda839f652e54c911318 80.74MB / 158.12MB 0.5s
+#10 sha256:c5b9275bc0db751e2d75dfe63b7fe841f35111d72e930782de032d5d13d45ab1 22.95MB / 22.95MB 0.2s done
+#10 sha256:edd1ed89f0d443580bd42e5a10cd8736aba5a3438b2a0645c2ebb50119bb0eba 29.76MB / 29.76MB 0.2s done
+#10 extracting sha256:edd1ed89f0d443580bd42e5a10cd8736aba5a3438b2a0645c2ebb50119bb0eba
+#10 sha256:07bad0cccfa15aac629986ee3771c057c7690f9ce635dda839f652e54c911318 121.63MB / 158.12MB 0.6s
+#10 sha256:07bad0cccfa15aac629986ee3771c057c7690f9ce635dda839f652e54c911318 158.12MB / 158.12MB 0.8s
+#10 sha256:07bad0cccfa15aac629986ee3771c057c7690f9ce635dda839f652e54c911318 158.12MB / 158.12MB 0.8s done
+#10 extracting sha256:edd1ed89f0d443580bd42e5a10cd8736aba5a3438b2a0645c2ebb50119bb0eba 1.0s done
+#10 extracting sha256:edd1ed89f0d443580bd42e5a10cd8736aba5a3438b2a0645c2ebb50119bb0eba 1.0s done
+#10 extracting sha256:c5b9275bc0db751e2d75dfe63b7fe841f35111d72e930782de032d5d13d45ab1
+#10 ...
+
+#11 [app stage-1 1/4] FROM docker.io/library/eclipse-temurin:21-jre-alpine@sha256:82cf3d9ccbe1ed46252008d51b2f2329e6b9e8a2f4394c4bebefc3ea7f4b1372
+#11 resolve docker.io/library/eclipse-temurin:21-jre-alpine@sha256:82cf3d9ccbe1ed46252008d51b2f2329e6b9e8a2f4394c4bebefc3ea7f4b1372 0.0s done
+#11 sha256:1a4ad63dfbce5b3edc008a7e316209a58dadabff7aac0b02190eb22f74b95478 2.46kB / 2.46kB 0.0s done
+#11 sha256:11d552fe703dd0bf1eed620b058c744a402225b3aa72be3028e7a6a3df0d383e 127B / 127B 0.0s done
+#11 sha256:30414a79ff6e738ae1dda517a6cd2e295f67de87055edffed33e149fef30de9a 53.38MB / 53.38MB 0.4s done
+#11 sha256:fe426ef558f85718d259e266c713c1c4b63c669957fc5962174d90302b7379b0 16.97MB / 16.97MB 0.2s done
+#11 extracting sha256:fe426ef558f85718d259e266c713c1c4b63c669957fc5962174d90302b7379b0 0.6s done
+#11 extracting sha256:30414a79ff6e738ae1dda517a6cd2e295f67de87055edffed33e149fef30de9a 0.9s done
+#11 DONE 1.7s
+
+#11 [app stage-1 1/4] FROM docker.io/library/eclipse-temurin:21-jre-alpine@sha256:82cf3d9ccbe1ed46252008d51b2f2329e6b9e8a2f4394c4bebefc3ea7f4b1372
+#11 extracting sha256:11d552fe703dd0bf1eed620b058c744a402225b3aa72be3028e7a6a3df0d383e done
+#11 extracting sha256:1a4ad63dfbce5b3edc008a7e316209a58dadabff7aac0b02190eb22f74b95478 done
+#11 DONE 1.7s
+
+#12 [app stage-1 2/4] RUN addgroup -S esg && adduser -S esg -G esg
+#12 DONE 1.7s
+
+#10 [app 1/5] FROM docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320
+#10 extracting sha256:c5b9275bc0db751e2d75dfe63b7fe841f35111d72e930782de032d5d13d45ab1 0.8s done
+#10 extracting sha256:07bad0cccfa15aac629986ee3771c057c7690f9ce635dda839f652e54c911318
+#10 extracting sha256:07bad0cccfa15aac629986ee3771c057c7690f9ce635dda839f652e54c911318 1.8s done
+#10 extracting sha256:f1408710f65cf2f33054c8d5b33ab1f5684c9ffcfc81bc01e550faec04fa9d0b
+#10 ...
+
+#13 [app stage-1 3/4] WORKDIR /app
+#13 DONE 0.7s
+
+#10 [app 1/5] FROM docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320
+#10 extracting sha256:07bad0cccfa15aac629986ee3771c057c7690f9ce635dda839f652e54c911318 1.8s done
+#10 extracting sha256:f1408710f65cf2f33054c8d5b33ab1f5684c9ffcfc81bc01e550faec04fa9d0b done
+#10 extracting sha256:49cf9009e0af3adc96baebc58dcde451a6858961e0c027ba7f7ba3075e7240ba done
+#10 extracting sha256:bd0bb49686d38ffc090c15f30d472cdb0354fb8cf46c03f21f4f2764d4e4efcd
+#10 extracting sha256:bd0bb49686d38ffc090c15f30d472cdb0354fb8cf46c03f21f4f2764d4e4efcd 0.6s done
+#10 extracting sha256:bd0bb49686d38ffc090c15f30d472cdb0354fb8cf46c03f21f4f2764d4e4efcd 0.6s done
+#10 extracting sha256:1bf7f7b7d02f74fa2a38d4325c84dcaf0e91faae8e30f221d86c841b0c4f6647 0.1s done
+#10 extracting sha256:a466b9e11010eac13b4d1ac50894b683c5fbc95be50dc4dedcdec9c979f98f96 done
+#10 extracting sha256:405aa165b3ac61a5d93c2398a95cdd881401cceda86849dde23f6293310b70c0 done
+#10 DONE 4.8s
+
+#14 [testes 2/5] WORKDIR /workspace
+#14 DONE 0.1s
+
+#15 [testes 3/5] COPY pom.xml .
+#15 DONE 0.0s
+
+#16 [app 4/5] RUN mvn -B -q dependency:go-offline
+#16 DONE 33.8s
+
+#17 [app 5/5] COPY src ./src
+#17 DONE 0.1s
+
+#18 [testes] exporting to image
+#18 exporting layers
+#18 exporting layers 6.3s done
+#18 exporting manifest sha256:0805def0e71e7e8ff4925f5f4b8f0308d4e25f1e7d7e5628aa08b92640a90499 done
+#18 exporting config sha256:90b59a95683325ff66eeb87bce4628475960c2234b6e9fc1125a39c0dc580cca done
+#18 exporting attestation manifest sha256:536eb89553548261a2545555b874faf40c1e955f4e2a5aad0184778f1220ce06 done
+#18 exporting manifest list sha256:5e76e55c8f76c95f5b3315650d7f79871b15bad6aef3e2a5f436ff6e47c205e5 done
+#18 naming to docker.io/library/cidades-inteligentes-testes:latest done
+#18 unpacking to docker.io/library/cidades-inteligentes-testes:latest
+#18 unpacking to docker.io/library/cidades-inteligentes-testes:latest 2.9s done
+#18 DONE 9.3s
+
+#19 [testes] resolving provenance for metadata file
+#19 DONE 0.0s
+
+#20 [app build 6/6] RUN mvn -B -q package -DskipTests
+#20 DONE 10.0s
+
+#21 [app stage-1 4/4] COPY --from=build --chown=esg:esg /workspace/target/cidades-esg.jar app.jar
+#21 DONE 0.1s
+
+#22 [app] exporting to image
+#22 exporting layers 1.4s done
+#22 exporting manifest sha256:608a80c4e260e982278fe8ae07aeb86b99f9213adf78977caca776f19d354624 done
+#22 exporting config sha256:56214095906b9ec89f0fb3f13f01730c7562465f4bae6c6453599d81ab28549a done
+#22 exporting attestation manifest sha256:237edbed2d6331d94a136b8b450af17adf0b348fe0fd9be2af2a13b42ab45fe2 done
+#22 exporting manifest list sha256:fdab8c90e165ec4ac124c06083ece306471ec1ca48eb1144345f087e4fca78fa done
+#22 naming to docker.io/library/cidades-inteligentes-app:latest done
+#22 unpacking to docker.io/library/cidades-inteligentes-app:latest
+#22 unpacking to docker.io/library/cidades-inteligentes-app:latest 0.2s done
+#22 DONE 1.6s
+
+#23 [app] resolving provenance for metadata file
+#23 DONE 0.0s
+ Image cidades-inteligentes-app Built 
+ Image cidades-inteligentes-testes Built 
+ Network cidades-inteligentes_default Creating 
+ Network cidades-inteligentes_default Created 
+ Container cidades-inteligentes-db-1 Creating 
+ Container cidades-inteligentes-db-1 Created 
+ Container cidades-inteligentes-app-1 Creating 
+ Container cidades-inteligentes-app-1 Created 
+ Container cidades-inteligentes-testes-1 Creating 
+ Container cidades-inteligentes-testes-1 Created 
+Attaching to app-1, db-1, testes-1
+ Container cidades-inteligentes-db-1 Starting 
+ Container cidades-inteligentes-db-1 Started 
+ Container cidades-inteligentes-db-1 Waiting 
+db-1  | The files belonging to this database system will be owned by user "postgres".
+db-1  | This user must also own the server process.
+db-1  | 
+db-1  | The database cluster will be initialized with locale "en_US.utf8".
+db-1  | The default database encoding has accordingly been set to "UTF8".
+db-1  | The default text search configuration will be set to "english".
+db-1  | 
+db-1  | Data page checksums are disabled.
+db-1  | 
+db-1  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+db-1  | creating subdirectories ... ok
+db-1  | selecting dynamic shared memory implementation ... posix
+db-1  | selecting default max_connections ... 100
+db-1  | selecting default shared_buffers ... 128MB
+db-1  | selecting default time zone ... UTC
+db-1  | creating configuration files ... ok
+db-1  | running bootstrap script ... ok
+db-1  | sh: locale: not found
+db-1  | 2026-11-03 00:04:49.301 UTC [37] WARNING:  no usable system locales were found
+db-1  | performing post-bootstrap initialization ... ok
+db-1  | syncing data to disk ... ok
+db-1  | 
+db-1  | 
+db-1  | Success. You can now start the database server using:
+db-1  | 
+db-1  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db-1  | 
+db-1  | initdb: warning: enabling "trust" authentication for local connections
+db-1  | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+db-1  | waiting for server to start....2026-11-03 00:04:49.790 UTC [43] LOG:  starting PostgreSQL 16.15 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+db-1  | 2026-11-03 00:04:49.790 UTC [43] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1  | 2026-11-03 00:04:49.792 UTC [46] LOG:  database system was shut down at 2026-11-03 00:04:49 UTC
+db-1  | 2026-11-03 00:04:49.795 UTC [43] LOG:  database system is ready to accept connections
+db-1  |  done
+db-1  | server started
+db-1  | CREATE DATABASE
+db-1  | 
+db-1  | 
+db-1  | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+db-1  | 
+db-1  | waiting for server to shut down....2026-11-03 00:04:49.923 UTC [43] LOG:  received fast shutdown request
+db-1  | 2026-11-03 00:04:49.923 UTC [43] LOG:  aborting any active transactions
+db-1  | 2026-11-03 00:04:49.926 UTC [43] LOG:  background worker "logical replication launcher" (PID 49) exited with exit code 1
+db-1  | 2026-11-03 00:04:49.927 UTC [44] LOG:  shutting down
+db-1  | 2026-11-03 00:04:49.927 UTC [44] LOG:  checkpoint starting: shutdown immediate
+db-1  | 2026-11-03 00:04:49.934 UTC [44] LOG:  checkpoint complete: wrote 926 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.007 s, sync=0.001 s, total=0.007 s; sync files=301, longest=0.001 s, average=0.000 s; distance=4283 kB, estimate=4283 kB; lsn=0/1925D60, redo lsn=0/1925D60
+db-1  | 2026-11-03 00:04:49.942 UTC [43] LOG:  database system is shut down
+db-1  |  done
+db-1  | server stopped
+db-1  | 
+db-1  | PostgreSQL init process complete; ready for start up.
+db-1  | 
+db-1  | 2026-11-03 00:04:50.044 UTC [1] LOG:  starting PostgreSQL 16.15 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+db-1  | 2026-11-03 00:04:50.044 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-1  | 2026-11-03 00:04:50.044 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-1  | 2026-11-03 00:04:50.045 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1  | 2026-11-03 00:04:50.047 UTC [59] LOG:  database system was shut down at 2026-11-03 00:04:49 UTC
+db-1  | 2026-11-03 00:04:50.051 UTC [1] LOG:  database system is ready to accept connections
+ Container cidades-inteligentes-db-1 Healthy 
+ Container cidades-inteligentes-app-1 Starting 
+ Container cidades-inteligentes-app-1 Started 
+ Container cidades-inteligentes-app-1 Waiting 
+app-1  | 
+app-1  |   .   ____          _            __ _ _
+app-1  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+app-1  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+app-1  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+app-1  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+app-1  |  =========|_|==============|___/=/_/_/_/
+app-1  | 
+app-1  |  :: Spring Boot ::                (v3.3.5)
+app-1  | 
+app-1  | 2026-11-02T21:04:55.531-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] br.com.fiap.esg.CidadesEsgApplication    : Starting CidadesEsgApplication v1.0.0 using Java 21.0.13 with PID 1 (/app/app.jar started by esg in /app)
+app-1  | 2026-11-02T21:04:55.535-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] br.com.fiap.esg.CidadesEsgApplication    : No active profile set, falling back to 1 default profile: "default"
+app-1  | 2026-11-02T21:04:56.732-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+app-1  | 2026-11-02T21:04:56.782-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 3 JPA repository interfaces.
+app-1  | 2026-11-02T21:04:57.559-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+app-1  | 2026-11-02T21:04:57.573-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+app-1  | 2026-11-02T21:04:57.573-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+app-1  | 2026-11-02T21:04:57.604-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+app-1  | 2026-11-02T21:04:57.606-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2004 ms
+app-1  | 2026-11-02T21:04:57.991-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+app-1  | 2026-11-02T21:04:58.043-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+app-1  | 2026-11-02T21:04:58.079-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+app-1  | 2026-11-02T21:04:58.403-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+app-1  | 2026-11-02T21:04:58.428-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+app-1  | 2026-11-02T21:04:58.627-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@422ba9b7
+app-1  | 2026-11-02T21:04:58.629-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+app-1  | 2026-11-02T21:04:59.620-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+app-1  | 2026-11-02T21:04:59.685-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+app-1  | 2026-11-02T21:05:00.077-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+app-1  | 2026-11-02T21:05:01.466-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+app-1  | 2026-11-02T21:05:01.539-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+app-1  | 2026-11-02T21:05:01.554-03:00  INFO 1 --- [cidades-esg-inteligentes] [           main] br.com.fiap.esg.CidadesEsgApplication    : Started CidadesEsgApplication in 6.522 seconds (process running for 7.077)
+app-1  | 2026-11-02T21:05:04.600-03:00  INFO 1 --- [cidades-esg-inteligentes] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+app-1  | 2026-11-02T21:05:04.600-03:00  INFO 1 --- [cidades-esg-inteligentes] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+app-1  | 2026-11-02T21:05:04.602-03:00  INFO 1 --- [cidades-esg-inteligentes] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+ Container cidades-inteligentes-app-1 Healthy 
+ Container cidades-inteligentes-testes-1 Starting 
+ Container cidades-inteligentes-testes-1 Started 
+testes-1  | [INFO] Scanning for projects...
+testes-1  | [INFO] 
+testes-1  | [INFO] ----------------< br.com.fiap:cidades-esg-inteligentes >----------------
+testes-1  | [INFO] Building Cidades ESG Inteligentes 1.0.0
+testes-1  | [INFO]   from pom.xml
+testes-1  | [INFO] --------------------------------[ jar ]---------------------------------
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.pom (19 kB at 47 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/jboss/logging/logging-parent/1.0.1.Final/logging-parent-1.0.1.Final.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/jboss/logging/logging-parent/1.0.1.Final/logging-parent-1.0.1.Final.pom (6.0 kB at 129 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/classmate/1.7.0/classmate-1.7.0.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/classmate/1.7.0/classmate-1.7.0.pom (7.0 kB at 282 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy/1.14.19/byte-buddy-1.14.19.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy/1.14.19/byte-buddy-1.14.19.pom (16 kB at 362 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-parent/1.14.19/byte-buddy-parent-1.14.19.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-parent/1.14.19/byte-buddy-parent-1.14.19.pom (62 kB at 1.9 MB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.pom (11 kB at 204 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/sun/xml/bind/mvn/jaxb-runtime-parent/4.0.5/jaxb-runtime-parent-4.0.5.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/sun/xml/bind/mvn/jaxb-runtime-parent/4.0.5/jaxb-runtime-parent-4.0.5.pom (1.2 kB at 40 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/sun/xml/bind/mvn/jaxb-parent/4.0.5/jaxb-parent-4.0.5.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/sun/xml/bind/mvn/jaxb-parent/4.0.5/jaxb-parent-4.0.5.pom (35 kB at 1.2 MB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/sun/xml/bind/jaxb-bom-ext/4.0.5/jaxb-bom-ext-4.0.5.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/sun/xml/bind/jaxb-bom-ext/4.0.5/jaxb-bom-ext-4.0.5.pom (3.5 kB at 102 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.pom (3.7 kB at 101 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.pom (4.0 kB at 93 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/angus/angus-activation-project/2.0.2/angus-activation-project-2.0.2.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/angus/angus-activation-project/2.0.2/angus-activation-project-2.0.2.pom (21 kB at 509 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.pom (1.8 kB at 32 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/sun/xml/bind/mvn/jaxb-txw-parent/4.0.5/jaxb-txw-parent-4.0.5.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/sun/xml/bind/mvn/jaxb-txw-parent/4.0.5/jaxb-txw-parent-4.0.5.pom (1.2 kB at 24 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.pom (1.6 kB at 53 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/sun/istack/istack-commons/4.1.2/istack-commons-4.1.2.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/sun/istack/istack-commons/4.1.2/istack-commons-4.1.2.pom (26 kB at 692 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-agent/1.14.19/byte-buddy-agent-1.14.19.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-agent/1.14.19/byte-buddy-agent-1.14.19.pom (10 kB at 299 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/maven-metadata.xml
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/maven-metadata.xml (3.6 kB at 151 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/19.1.4/messages-19.1.4.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/19.1.4/messages-19.1.4.pom (4.1 kB at 151 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/cucumber-parent/3.0.0/cucumber-parent-3.0.0.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/cucumber-parent/3.0.0/cucumber-parent-3.0.0.pom (22 kB at 463 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.13.4/jackson-bom-2.13.4.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.13.4/jackson-bom-2.13.4.pom (17 kB at 377 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.13/jackson-parent-2.13.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.13/jackson-parent-2.13.pom (7.4 kB at 285 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/43/oss-parent-43.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/43/oss-parent-43.pom (24 kB at 1.1 MB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/20.0.0/messages-20.0.0.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/20.0.0/messages-20.0.0.pom (4.2 kB at 94 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/cucumber-parent/4.1.1/cucumber-parent-4.1.1.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/cucumber-parent/4.1.1/cucumber-parent-4.1.1.pom (21 kB at 584 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.14.0/jackson-bom-2.14.0.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.14.0/jackson-bom-2.14.0.pom (17 kB at 729 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/21.0.1/messages-21.0.1.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/21.0.1/messages-21.0.1.pom (4.4 kB at 159 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.14.1/jackson-bom-2.14.1.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.14.1/jackson-bom-2.14.1.pom (17 kB at 625 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/22.0.0/messages-22.0.0.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/22.0.0/messages-22.0.0.pom (4.4 kB at 127 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.9.2/junit-bom-5.9.2.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.9.2/junit-bom-5.9.2.pom (5.6 kB at 120 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/23.0.0/messages-23.0.0.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/23.0.0/messages-23.0.0.pom (4.4 kB at 111 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.15.3/jackson-bom-2.15.3.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.15.3/jackson-bom-2.15.3.pom (18 kB at 643 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.15/jackson-parent-2.15.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.15/jackson-parent-2.15.pom (6.5 kB at 343 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/50/oss-parent-50.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/50/oss-parent-50.pom (24 kB at 446 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/24.0.0/messages-24.0.0.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/24.0.0/messages-24.0.0.pom (4.4 kB at 193 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.16.0/jackson-bom-2.16.0.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.16.0/jackson-bom-2.16.0.pom (18 kB at 434 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/24.0.1/messages-24.0.1.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/24.0.1/messages-24.0.1.pom (4.4 kB at 185 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/query/maven-metadata.xml
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/query/maven-metadata.xml (1.3 kB at 31 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/18.0.0/messages-18.0.0.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/18.0.0/messages-18.0.0.pom (4.0 kB at 119 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/cucumber-parent/2.3.2/cucumber-parent-2.3.2.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/cucumber-parent/2.3.2/cucumber-parent-2.3.2.pom (22 kB at 726 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.13.2/jackson-bom-2.13.2.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.13.2/jackson-bom-2.13.2.pom (17 kB at 526 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/19.0.0/messages-19.0.0.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/19.0.0/messages-19.0.0.pom (4.1 kB at 88 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.13.3/jackson-bom-2.13.3.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.13.3/jackson-bom-2.13.3.pom (17 kB at 868 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/19.1.0/messages-19.1.0.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/19.1.0/messages-19.1.0.pom (4.1 kB at 177 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/19.1.1/messages-19.1.1.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/19.1.1/messages-19.1.1.pom (4.1 kB at 131 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/19.1.2/messages-19.1.2.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/19.1.2/messages-19.1.2.pom (4.1 kB at 131 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/19.1.3/messages-19.1.3.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/19.1.3/messages-19.1.3.pom (4.1 kB at 70 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.9.0/junit-bom-5.9.0.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.9.0/junit-bom-5.9.0.pom (5.6 kB at 144 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/groovy/groovy/4.0.23/groovy-4.0.23.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/groovy/groovy/4.0.23/groovy-4.0.23.pom (24 kB at 861 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/groovy/groovy-xml/4.0.23/groovy-xml-4.0.23.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/groovy/groovy-xml/4.0.23/groovy-xml-4.0.23.pom (23 kB at 461 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.pom (5.0 kB at 146 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcomponents-core/4.4.16/httpcomponents-core-4.4.16.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcomponents-core/4.4.16/httpcomponents-core-4.4.16.pom (12 kB at 306 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/groovy/groovy-json/4.0.23/groovy-json-4.0.23.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/groovy/groovy-json/4.0.23/groovy-json-4.0.23.pom (23 kB at 664 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar (59 kB at 1.3 MB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy/1.14.19/byte-buddy-1.14.19.jar
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar (69 kB at 2.0 MB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar (27 kB at 564 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar (73 kB at 1.2 MB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/2.0.16/slf4j-api-2.0.16.jar
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar (26 kB at 339 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-agent/1.14.19/byte-buddy-agent-1.14.19.jar
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/2.0.16/slf4j-api-2.0.16.jar (69 kB at 747 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/groovy/groovy/4.0.23/groovy-4.0.23.jar
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar (920 kB at 9.4 MB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/groovy/groovy-xml/4.0.23/groovy-xml-4.0.23.jar
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar (139 kB at 1.3 MB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/groovy/groovy-xml/4.0.23/groovy-xml-4.0.23.jar (213 kB at 1.6 MB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/groovy/groovy-json/4.0.23/groovy-json-4.0.23.jar
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-agent/1.14.19/byte-buddy-agent-1.14.19.jar (263 kB at 2.0 MB/s)
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar (328 kB at 2.2 MB/s)
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/groovy/groovy-json/4.0.23/groovy-json-4.0.23.jar (130 kB at 823 kB/s)
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy/1.14.19/byte-buddy-1.14.19.jar (4.2 MB at 22 MB/s)
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/groovy/groovy/4.0.23/groovy-4.0.23.jar (7.6 MB at 34 MB/s)
+testes-1  | [INFO] 
+testes-1  | [INFO] --- resources:3.3.1:resources (default-resources) @ cidades-esg-inteligentes ---
+testes-1  | [INFO] Copying 1 resource from src/main/resources to target/classes
+testes-1  | [INFO] Copying 0 resource from src/main/resources to target/classes
+testes-1  | [INFO] 
+testes-1  | [INFO] --- compiler:3.13.0:compile (default-compile) @ cidades-esg-inteligentes ---
+testes-1  | [INFO] Recompiling the module because of changed source code.
+testes-1  | [INFO] Compiling 19 source files with javac [debug parameters release 21] to target/classes
+testes-1  | [INFO] 
+testes-1  | [INFO] --- resources:3.3.1:testResources (default-testResources) @ cidades-esg-inteligentes ---
+testes-1  | [INFO] Copying 17 resources from src/test/resources to target/test-classes
+testes-1  | [INFO] 
+testes-1  | [INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ cidades-esg-inteligentes ---
+testes-1  | [INFO] Recompiling the module because of changed dependency.
+testes-1  | [INFO] Compiling 9 source files with javac [debug parameters release 21] to target/test-classes
+testes-1  | [INFO] 
+testes-1  | [INFO] --- surefire:3.2.5:test (default-test) @ cidades-esg-inteligentes ---
+testes-1  | [INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit-platform/3.2.5/surefire-junit-platform-3.2.5.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit-platform/3.2.5/surefire-junit-platform-3.2.5.pom (4.7 kB at 88 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-providers/3.2.5/surefire-providers-3.2.5.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-providers/3.2.5/surefire-providers-3.2.5.pom (2.6 kB at 93 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/common-java5/3.2.5/common-java5-3.2.5.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/common-java5/3.2.5/common-java5-3.2.5.pom (2.8 kB at 83 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/1.9.3/junit-platform-launcher-1.9.3.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/1.9.3/junit-platform-launcher-1.9.3.pom (3.0 kB at 92 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.9.3/junit-platform-engine-1.9.3.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.9.3/junit-platform-engine-1.9.3.pom (3.2 kB at 107 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.pom (1.7 kB at 39 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.9.3/junit-platform-commons-1.9.3.pom
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.9.3/junit-platform-commons-1.9.3.pom (2.8 kB at 109 kB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit-platform/3.2.5/surefire-junit-platform-3.2.5.jar
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit-platform/3.2.5/surefire-junit-platform-3.2.5.jar (27 kB at 1.1 MB/s)
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/common-java5/3.2.5/common-java5-3.2.5.jar
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.9.3/junit-platform-engine-1.9.3.jar
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/1.9.3/junit-platform-launcher-1.9.3.jar
+testes-1  | [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.9.3/junit-platform-commons-1.9.3.jar
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/1.9.3/junit-platform-launcher-1.9.3.jar (169 kB at 5.5 MB/s)
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.9.3/junit-platform-engine-1.9.3.jar (189 kB at 5.7 MB/s)
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/common-java5/3.2.5/common-java5-3.2.5.jar (18 kB at 502 kB/s)
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.9.3/junit-platform-commons-1.9.3.jar (103 kB at 2.9 MB/s)
+testes-1  | [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar (7.7 kB at 196 kB/s)
+testes-1  | [INFO] 
+testes-1  | [INFO] -------------------------------------------------------
+testes-1  | [INFO]  T E S T S
+testes-1  | [INFO] -------------------------------------------------------
+testes-1  | [INFO] Running br.com.fiap.esg.bdd.ContratoJsonSchemaTest
+testes-1  | [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.367 s -- in br.com.fiap.esg.bdd.ContratoJsonSchemaTest
+testes-1  | [INFO] Running br.com.fiap.esg.bdd.BddApiTest
+testes-1  | 
+testes-1  | @alertas @positivo @governanca
+testes-1  | Cenário: Consultar alerta aberto com dados de rastreabilidade                                                  # features/alertas.feature:13
+testes-1  |   Dado que existe um edifício "Secretaria do Meio Ambiente" com meta diária de 100.00 kWh                      # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   E que foi registrada uma medição de 150.00 kWh em "2026-10-05T09:00:00"                                      # br.com.fiap.esg.bdd.MonitoramentoSteps.medicaoRegistrada(java.math.BigDecimal,java.lang.String)
+testes-1  |   Quando consulto os alertas abertos                                                                           # br.com.fiap.esg.bdd.MonitoramentoSteps.consultoAlertas()
+testes-1  |   Então o status da resposta deve ser 200                                                                      # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "alerta-lista.json"                                                   # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E o alerta do edifício deve registrar consumo de 150.00 kWh contra a meta de 100.00 kWh na data "2026-10-05" # br.com.fiap.esg.bdd.MonitoramentoSteps.alertaRastreavel(java.math.BigDecimal,java.math.BigDecimal,java.lang.String)
+testes-1  | 
+testes-1  | @alertas @positivo @governanca
+testes-1  | Cenário: Nova medição no mesmo dia atualiza o alerta existente                                                 # features/alertas.feature:20
+testes-1  |   Dado que existe um edifício "Secretaria do Meio Ambiente" com meta diária de 100.00 kWh                      # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   E que foi registrada uma medição de 150.00 kWh em "2026-10-05T09:00:00"                                      # br.com.fiap.esg.bdd.MonitoramentoSteps.medicaoRegistrada(java.math.BigDecimal,java.lang.String)
+testes-1  |   Dado que foi registrada uma medição de 40.00 kWh em "2026-10-05T15:00:00"                                    # br.com.fiap.esg.bdd.MonitoramentoSteps.medicaoRegistrada(java.math.BigDecimal,java.lang.String)
+testes-1  |   Quando consulto os alertas abertos                                                                           # br.com.fiap.esg.bdd.MonitoramentoSteps.consultoAlertas()
+testes-1  |   Então o status da resposta deve ser 200                                                                      # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E o alerta do edifício deve registrar consumo de 190.00 kWh contra a meta de 100.00 kWh na data "2026-10-05" # br.com.fiap.esg.bdd.MonitoramentoSteps.alertaRastreavel(java.math.BigDecimal,java.math.BigDecimal,java.lang.String)
+testes-1  | 
+testes-1  | @alertas @positivo @governanca
+testes-1  | Cenário: Resolver um alerta aberto                                                        # features/alertas.feature:27
+testes-1  |   Dado que existe um edifício "Secretaria do Meio Ambiente" com meta diária de 100.00 kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   E que foi registrada uma medição de 150.00 kWh em "2026-10-05T09:00:00"                 # br.com.fiap.esg.bdd.MonitoramentoSteps.medicaoRegistrada(java.math.BigDecimal,java.lang.String)
+testes-1  |   Dado que o alerta do edifício foi aberto                                                # br.com.fiap.esg.bdd.MonitoramentoSteps.alertaAberto()
+testes-1  |   Quando resolvo o alerta do edifício                                                     # br.com.fiap.esg.bdd.MonitoramentoSteps.resolvoAlerta()
+testes-1  |   Então o status da resposta deve ser 200                                                 # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "alerta.json"                                    # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E o campo "status" deve ser "RESOLVIDO"                                                 # br.com.fiap.esg.bdd.RespostaSteps.campoTexto(java.lang.String,java.lang.String)
+testes-1  |   E o edifício não deve ter alerta aberto                                                 # br.com.fiap.esg.bdd.MonitoramentoSteps.semAlertaAberto()
+testes-1  | 
+testes-1  | @alertas @negativo
+testes-1  | Cenário: Resolver um alerta que não existe                                                # features/alertas.feature:36
+testes-1  |   Dado que existe um edifício "Secretaria do Meio Ambiente" com meta diária de 100.00 kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   E que foi registrada uma medição de 150.00 kWh em "2026-10-05T09:00:00"                 # br.com.fiap.esg.bdd.MonitoramentoSteps.medicaoRegistrada(java.math.BigDecimal,java.lang.String)
+testes-1  |   Quando resolvo um alerta que não existe                                                 # br.com.fiap.esg.bdd.MonitoramentoSteps.resolvoAlertaInexistente()
+testes-1  |   Então o status da resposta deve ser 404                                                 # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "erro.json"                                      # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E a mensagem de erro deve citar "nao encontrado"                                        # br.com.fiap.esg.bdd.RespostaSteps.mensagemDeErro(java.lang.String)
+testes-1  | 
+testes-1  | @edificios @positivo @ambiental
+testes-1  | Cenário: Cadastrar edifício com meta ESG válida                                                                         # features/edificios.feature:9
+testes-1  |   Quando cadastro o edifício "Hospital Municipal Norte" do tipo "HOSPITAL" em "Sao Paulo" com meta diária de 500.00 kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.cadastroEdificio(java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal)
+testes-1  |   Então o status da resposta deve ser 201                                                                               # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "edificio.json"                                                                # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E o campo "id" deve estar preenchido                                                                                  # br.com.fiap.esg.bdd.RespostaSteps.campoPreenchido(java.lang.String)
+testes-1  |   E o campo "nome" deve ser "Hospital Municipal Norte"                                                                  # br.com.fiap.esg.bdd.RespostaSteps.campoTexto(java.lang.String,java.lang.String)
+testes-1  |   E o campo "tipo" deve ser "HOSPITAL"                                                                                  # br.com.fiap.esg.bdd.RespostaSteps.campoTexto(java.lang.String,java.lang.String)
+testes-1  |   E o campo "limiteDiarioKwh" deve valer 500.00                                                                         # br.com.fiap.esg.bdd.RespostaSteps.campoNumerico(java.lang.String,java.math.BigDecimal)
+testes-1  | 
+testes-1  | @edificios @positivo
+testes-1  | Cenário: Consultar um edifício cadastrado                                       # features/edificios.feature:19
+testes-1  |   Dado que existe um edifício "EMEF Jardim Verde" com meta diária de 100.00 kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   Quando consulto o edifício cadastrado                                         # br.com.fiap.esg.bdd.MonitoramentoSteps.consultoEdificio()
+testes-1  |   Então o status da resposta deve ser 200                                       # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "edificio.json"                        # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E o campo "nome" deve ser "EMEF Jardim Verde"                                 # br.com.fiap.esg.bdd.RespostaSteps.campoTexto(java.lang.String,java.lang.String)
+testes-1  | 
+testes-1  | @edificios @positivo
+testes-1  | Cenário: Listar os edifícios monitorados                                         # features/edificios.feature:27
+testes-1  |   Dado que existe um edifício "Prefeitura Central" com meta diária de 300.00 kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   Quando listo os edifícios                                                      # br.com.fiap.esg.bdd.MonitoramentoSteps.listoEdificios()
+testes-1  |   Então o status da resposta deve ser 200                                        # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "edificio-lista.json"                   # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E a lista deve conter o edifício cadastrado                                    # br.com.fiap.esg.bdd.MonitoramentoSteps.listaContemEdificio()
+testes-1  | 
+testes-1  | @edificios @negativo @governanca
+testes-1  | Esquema do Cenário: Rejeitar cadastro inválido: nome em branco                                   # features/edificios.feature:43
+testes-1  |   Quando tento cadastrar um edifício com nome "", cidade "Sao Paulo", tipo "ESCOLA" e meta "100" # br.com.fiap.esg.bdd.MonitoramentoSteps.tentoCadastrar(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+testes-1  |   Então o status da resposta deve ser 400                                                        # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "erro.json"                                             # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E a mensagem de erro deve citar "nome"                                                         # br.com.fiap.esg.bdd.RespostaSteps.mensagemDeErro(java.lang.String)
+testes-1  | 
+testes-1  | @edificios @negativo @governanca
+testes-1  | Esquema do Cenário: Rejeitar cadastro inválido: cidade em branco                              # features/edificios.feature:44
+testes-1  |   Quando tento cadastrar um edifício com nome "Escola", cidade "", tipo "ESCOLA" e meta "100" # br.com.fiap.esg.bdd.MonitoramentoSteps.tentoCadastrar(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+testes-1  |   Então o status da resposta deve ser 400                                                     # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "erro.json"                                          # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E a mensagem de erro deve citar "cidade"                                                    # br.com.fiap.esg.bdd.RespostaSteps.mensagemDeErro(java.lang.String)
+testes-1  | 
+testes-1  | @edificios @negativo @governanca
+testes-1  | Esquema do Cenário: Rejeitar cadastro inválido: tipo em branco                                   # features/edificios.feature:45
+testes-1  |   Quando tento cadastrar um edifício com nome "Escola", cidade "Sao Paulo", tipo "" e meta "100" # br.com.fiap.esg.bdd.MonitoramentoSteps.tentoCadastrar(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+testes-1  |   Então o status da resposta deve ser 400                                                        # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "erro.json"                                             # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E a mensagem de erro deve citar "tipo"                                                         # br.com.fiap.esg.bdd.RespostaSteps.mensagemDeErro(java.lang.String)
+testes-1  | 
+testes-1  | @edificios @negativo @governanca
+testes-1  | Esquema do Cenário: Rejeitar cadastro inválido: meta zerada                                          # features/edificios.feature:46
+testes-1  |   Quando tento cadastrar um edifício com nome "Escola", cidade "Sao Paulo", tipo "ESCOLA" e meta "0" # br.com.fiap.esg.bdd.MonitoramentoSteps.tentoCadastrar(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+testes-1  |   Então o status da resposta deve ser 400                                                            # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "erro.json"                                                 # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E a mensagem de erro deve citar "limiteDiarioKwh"                                                  # br.com.fiap.esg.bdd.RespostaSteps.mensagemDeErro(java.lang.String)
+testes-1  | 
+testes-1  | @edificios @negativo @governanca
+testes-1  | Esquema do Cenário: Rejeitar cadastro inválido: meta negativa                                          # features/edificios.feature:47
+testes-1  |   Quando tento cadastrar um edifício com nome "Escola", cidade "Sao Paulo", tipo "ESCOLA" e meta "-10" # br.com.fiap.esg.bdd.MonitoramentoSteps.tentoCadastrar(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+testes-1  |   Então o status da resposta deve ser 400                                                              # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "erro.json"                                                   # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E a mensagem de erro deve citar "limiteDiarioKwh"                                                    # br.com.fiap.esg.bdd.RespostaSteps.mensagemDeErro(java.lang.String)
+testes-1  | 
+testes-1  | @edificios @negativo @governanca
+testes-1  | Esquema do Cenário: Rejeitar cadastro inválido: meta ausente                                               # features/edificios.feature:48
+testes-1  |   Quando tento cadastrar um edifício com nome "Escola", cidade "Sao Paulo", tipo "ESCOLA" e meta "ausente" # br.com.fiap.esg.bdd.MonitoramentoSteps.tentoCadastrar(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+testes-1  |   Então o status da resposta deve ser 400                                                                  # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "erro.json"                                                       # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E a mensagem de erro deve citar "limiteDiarioKwh"                                                        # br.com.fiap.esg.bdd.RespostaSteps.mensagemDeErro(java.lang.String)
+app-1     | 2026-11-02T21:05:17.243-03:00  WARN 1 --- [cidades-esg-inteligentes] [nio-8080-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected end-of-input within/between Object entries]
+testes-1  | 
+testes-1  | @edificios @negativo
+testes-1  | Cenário: Rejeitar corpo com JSON malformado                # features/edificios.feature:51
+testes-1  |   Quando envio um cadastro de edifício com JSON malformado # br.com.fiap.esg.bdd.MonitoramentoSteps.jsonMalformado()
+testes-1  |   Então o status da resposta deve ser 400                  # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  | 
+testes-1  | @edificios @negativo
+testes-1  | Cenário: Consultar um edifício que não existe        # features/edificios.feature:56
+testes-1  |   Quando consulto um edifício que não existe         # br.com.fiap.esg.bdd.MonitoramentoSteps.consultoEdificioInexistente()
+testes-1  |   Então o status da resposta deve ser 404            # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "erro.json" # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E a mensagem de erro deve citar "nao encontrado"   # br.com.fiap.esg.bdd.RespostaSteps.mensagemDeErro(java.lang.String)
+testes-1  | 
+testes-1  | @edificios @negativo
+testes-1  | Cenário: Consultar um edifício com identificador inválido # features/edificios.feature:63
+app-1     | 2026-11-02T21:05:17.322-03:00  WARN 1 --- [cidades-esg-inteligentes] [io-8080-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "abc"]
+testes-1  |   Quando consulto um edifício com identificador "abc"     # br.com.fiap.esg.bdd.MonitoramentoSteps.consultoEdificioIdentificador(java.lang.String)
+testes-1  |   Então o status da resposta deve ser 400                 # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  | 
+testes-1  | @indicadores @positivo @ambiental
+testes-1  | Cenário: Indicadores refletem uma medição acima da meta                                   # features/indicadores.feature:9
+testes-1  |   Dado que anotei os indicadores atuais                                                   # br.com.fiap.esg.bdd.MonitoramentoSteps.anotoIndicadores()
+testes-1  |   E que existe um edifício "Biblioteca Municipal" com meta diária de 100.00 kWh           # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   Quando registro uma medição de 150.00 kWh em "2026-10-06T10:00:00"                      # br.com.fiap.esg.bdd.MonitoramentoSteps.registroMedicao(java.math.BigDecimal,java.lang.String)
+testes-1  |   E consulto os indicadores                                                               # br.com.fiap.esg.bdd.MonitoramentoSteps.consultoIndicadores()
+testes-1  |   Então o status da resposta deve ser 200                                                 # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "indicadores.json"                               # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E o indicador "edificiosMonitorados" deve ter variado 1                                 # br.com.fiap.esg.bdd.MonitoramentoSteps.indicadorVariou(java.lang.String,java.math.BigDecimal)
+testes-1  |   E o indicador "medicoesRegistradas" deve ter variado 1                                  # br.com.fiap.esg.bdd.MonitoramentoSteps.indicadorVariou(java.lang.String,java.math.BigDecimal)
+testes-1  |   E o indicador "consumoTotalKwh" deve ter variado 150.00                                 # br.com.fiap.esg.bdd.MonitoramentoSteps.indicadorVariou(java.lang.String,java.math.BigDecimal)
+testes-1  |   E o indicador "alertasAbertos" deve ter variado 1                                       # br.com.fiap.esg.bdd.MonitoramentoSteps.indicadorVariou(java.lang.String,java.math.BigDecimal)
+testes-1  |   E a emissão estimada deve corresponder ao consumo total pelo fator 0.0385 kgCO2 por kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.emissaoConsistente()
+testes-1  | 
+testes-1  | @indicadores @positivo @governanca
+testes-1  | Cenário: Resolver alerta atualiza os indicadores                              # features/indicadores.feature:23
+testes-1  |   Dado que existe um edifício "Centro Cultural" com meta diária de 100.00 kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   E que foi registrada uma medição de 150.00 kWh em "2026-10-06T10:00:00"     # br.com.fiap.esg.bdd.MonitoramentoSteps.medicaoRegistrada(java.math.BigDecimal,java.lang.String)
+testes-1  |   E que anotei os indicadores atuais                                          # br.com.fiap.esg.bdd.MonitoramentoSteps.anotoIndicadores()
+testes-1  |   E que o alerta do edifício foi resolvido                                    # br.com.fiap.esg.bdd.MonitoramentoSteps.alertaResolvido()
+testes-1  |   Quando consulto os indicadores                                              # br.com.fiap.esg.bdd.MonitoramentoSteps.consultoIndicadores()
+testes-1  |   Então o status da resposta deve ser 200                                     # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E o indicador "alertasAbertos" deve ter variado -1                          # br.com.fiap.esg.bdd.MonitoramentoSteps.indicadorVariou(java.lang.String,java.math.BigDecimal)
+testes-1  |   E o indicador "alertasResolvidos" deve ter variado 1                        # br.com.fiap.esg.bdd.MonitoramentoSteps.indicadorVariou(java.lang.String,java.math.BigDecimal)
+testes-1  | 
+testes-1  | @medicoes @positivo @ambiental
+testes-1  | Cenário: Consumo dentro da meta não gera alerta                                      # features/medicoes.feature:12
+testes-1  |   Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   Quando registro uma medição de 300.00 kWh em "2026-10-01T08:00:00"                 # br.com.fiap.esg.bdd.MonitoramentoSteps.registroMedicao(java.math.BigDecimal,java.lang.String)
+testes-1  |   Então o status da resposta deve ser 201                                            # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "medicao.json"                              # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E o campo "kwh" deve valer 300.00                                                  # br.com.fiap.esg.bdd.RespostaSteps.campoNumerico(java.lang.String,java.math.BigDecimal)
+testes-1  |   E o campo "alertaGerado" deve ser "false"                                          # br.com.fiap.esg.bdd.RespostaSteps.campoTexto(java.lang.String,java.lang.String)
+testes-1  |   E o edifício não deve ter alerta aberto                                            # br.com.fiap.esg.bdd.MonitoramentoSteps.semAlertaAberto()
+testes-1  | 
+testes-1  | @medicoes @positivo @ambiental
+testes-1  | Cenário: Consumo exatamente igual à meta não gera alerta                             # features/medicoes.feature:21
+testes-1  |   Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   Quando registro uma medição de 500.00 kWh em "2026-10-01T08:00:00"                 # br.com.fiap.esg.bdd.MonitoramentoSteps.registroMedicao(java.math.BigDecimal,java.lang.String)
+testes-1  |   Então o status da resposta deve ser 201                                            # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E o campo "alertaGerado" deve ser "false"                                          # br.com.fiap.esg.bdd.RespostaSteps.campoTexto(java.lang.String,java.lang.String)
+testes-1  | 
+testes-1  | @medicoes @positivo @ambiental
+testes-1  | Cenário: Consumo acumulado do dia acima da meta gera alerta                          # features/medicoes.feature:27
+testes-1  |   Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   Dado que foi registrada uma medição de 300.00 kWh em "2026-10-01T08:00:00"         # br.com.fiap.esg.bdd.MonitoramentoSteps.medicaoRegistrada(java.math.BigDecimal,java.lang.String)
+testes-1  |   Quando registro uma medição de 250.00 kWh em "2026-10-01T18:00:00"                 # br.com.fiap.esg.bdd.MonitoramentoSteps.registroMedicao(java.math.BigDecimal,java.lang.String)
+testes-1  |   Então o status da resposta deve ser 201                                            # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "medicao.json"                              # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E o campo "alertaGerado" deve ser "true"                                           # br.com.fiap.esg.bdd.RespostaSteps.campoTexto(java.lang.String,java.lang.String)
+testes-1  | 
+testes-1  | @medicoes @positivo @ambiental
+testes-1  | Cenário: Medições de dias diferentes não se somam                                    # features/medicoes.feature:35
+testes-1  |   Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   Dado que foi registrada uma medição de 300.00 kWh em "2026-10-01T08:00:00"         # br.com.fiap.esg.bdd.MonitoramentoSteps.medicaoRegistrada(java.math.BigDecimal,java.lang.String)
+testes-1  |   Quando registro uma medição de 250.00 kWh em "2026-10-02T08:00:00"                 # br.com.fiap.esg.bdd.MonitoramentoSteps.registroMedicao(java.math.BigDecimal,java.lang.String)
+testes-1  |   Então o status da resposta deve ser 201                                            # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E o campo "alertaGerado" deve ser "false"                                          # br.com.fiap.esg.bdd.RespostaSteps.campoTexto(java.lang.String,java.lang.String)
+testes-1  | 
+testes-1  | @medicoes @positivo
+testes-1  | Cenário: Medição sem data usa o horário atual                                        # features/medicoes.feature:42
+testes-1  |   Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   Quando registro uma medição de 10.00 kWh sem informar a data                       # br.com.fiap.esg.bdd.MonitoramentoSteps.registroMedicaoSemData(java.math.BigDecimal)
+testes-1  |   Então o status da resposta deve ser 201                                            # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "medicao.json"                              # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E o campo "dataHora" deve estar preenchido                                         # br.com.fiap.esg.bdd.RespostaSteps.campoPreenchido(java.lang.String)
+testes-1  | 
+testes-1  | @medicoes @positivo @governanca
+testes-1  | Cenário: Listar o histórico de medições do edifício                                  # features/medicoes.feature:49
+testes-1  |   Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   Dado que foi registrada uma medição de 10.00 kWh em "2026-10-01T08:00:00"          # br.com.fiap.esg.bdd.MonitoramentoSteps.medicaoRegistrada(java.math.BigDecimal,java.lang.String)
+testes-1  |   E que foi registrada uma medição de 20.00 kWh em "2026-10-03T08:00:00"             # br.com.fiap.esg.bdd.MonitoramentoSteps.medicaoRegistrada(java.math.BigDecimal,java.lang.String)
+testes-1  |   E que foi registrada uma medição de 30.00 kWh em "2026-10-02T08:00:00"             # br.com.fiap.esg.bdd.MonitoramentoSteps.medicaoRegistrada(java.math.BigDecimal,java.lang.String)
+testes-1  |   Quando listo as medições do edifício                                               # br.com.fiap.esg.bdd.MonitoramentoSteps.listoMedicoes()
+testes-1  |   Então o status da resposta deve ser 200                                            # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "medicao-lista.json"                        # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E a lista deve ter 3 medições, da mais recente para a mais antiga                  # br.com.fiap.esg.bdd.MonitoramentoSteps.listaOrdenada(int)
+testes-1  | 
+testes-1  | @medicoes @negativo @governanca
+testes-1  | Esquema do Cenário: Rejeitar medição inválida: consumo zerado                        # features/medicoes.feature:67
+testes-1  |   Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   Quando tento registrar uma medição com valor "0"                                   # br.com.fiap.esg.bdd.MonitoramentoSteps.tentoRegistrarMedicao(java.lang.String)
+testes-1  |   Então o status da resposta deve ser 400                                            # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "erro.json"                                 # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E a mensagem de erro deve citar "kwh"                                              # br.com.fiap.esg.bdd.RespostaSteps.mensagemDeErro(java.lang.String)
+testes-1  | 
+testes-1  | @medicoes @negativo @governanca
+testes-1  | Esquema do Cenário: Rejeitar medição inválida: consumo negativo                      # features/medicoes.feature:68
+testes-1  |   Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   Quando tento registrar uma medição com valor "-5"                                  # br.com.fiap.esg.bdd.MonitoramentoSteps.tentoRegistrarMedicao(java.lang.String)
+testes-1  |   Então o status da resposta deve ser 400                                            # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "erro.json"                                 # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E a mensagem de erro deve citar "kwh"                                              # br.com.fiap.esg.bdd.RespostaSteps.mensagemDeErro(java.lang.String)
+testes-1  | 
+testes-1  | @medicoes @negativo @governanca
+testes-1  | Esquema do Cenário: Rejeitar medição inválida: consumo ausente                       # features/medicoes.feature:69
+testes-1  |   Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   Quando tento registrar uma medição com valor "ausente"                             # br.com.fiap.esg.bdd.MonitoramentoSteps.tentoRegistrarMedicao(java.lang.String)
+testes-1  |   Então o status da resposta deve ser 400                                            # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "erro.json"                                 # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E a mensagem de erro deve citar "kwh"                                              # br.com.fiap.esg.bdd.RespostaSteps.mensagemDeErro(java.lang.String)
+testes-1  | 
+testes-1  | @medicoes @negativo
+testes-1  | Cenário: Registrar medição em edifício que não existe                                # features/medicoes.feature:72
+testes-1  |   Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   Quando registro uma medição em um edifício que não existe                          # br.com.fiap.esg.bdd.MonitoramentoSteps.registroMedicaoInexistente()
+testes-1  |   Então o status da resposta deve ser 404                                            # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "erro.json"                                 # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  | 
+testes-1  | @medicoes @negativo
+testes-1  | Cenário: Listar medições de edifício que não existe                                  # features/medicoes.feature:78
+testes-1  |   Dado que existe um edifício "Hospital Municipal Sul" com meta diária de 500.00 kWh # br.com.fiap.esg.bdd.MonitoramentoSteps.existeEdificio(java.lang.String,java.math.BigDecimal)
+testes-1  |   Quando listo as medições de um edifício que não existe                             # br.com.fiap.esg.bdd.MonitoramentoSteps.listoMedicoesInexistente()
+testes-1  |   Então o status da resposta deve ser 404                                            # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "erro.json"                                 # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  | 
+testes-1  | @sistema @positivo
+testes-1  | Cenário: Consultar a identificação da aplicação             # features/sistema.feature:9
+testes-1  |   Quando consulto a identificação da aplicação              # br.com.fiap.esg.bdd.MonitoramentoSteps.consultoInfo()
+testes-1  |   Então o status da resposta deve ser 200                   # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "info.json"        # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E o campo "aplicacao" deve ser "Cidades ESG Inteligentes" # br.com.fiap.esg.bdd.RespostaSteps.campoTexto(java.lang.String,java.lang.String)
+testes-1  |   E o campo "ambiente" deve ser "test"                      # br.com.fiap.esg.bdd.RespostaSteps.campoTexto(java.lang.String,java.lang.String)
+testes-1  | 
+testes-1  | @sistema @positivo
+testes-1  | Cenário: Consultar a saúde da aplicação                # features/sistema.feature:17
+testes-1  |   Quando consulto a saúde da aplicação                 # br.com.fiap.esg.bdd.MonitoramentoSteps.consultoSaude()
+testes-1  |   Então o status da resposta deve ser 200              # br.com.fiap.esg.bdd.RespostaSteps.statusDeveSer(int)
+testes-1  |   E a resposta deve respeitar o contrato "health.json" # br.com.fiap.esg.bdd.RespostaSteps.respeitaContrato(java.lang.String)
+testes-1  |   E o campo "status" deve ser "UP"                     # br.com.fiap.esg.bdd.RespostaSteps.campoTexto(java.lang.String,java.lang.String)
+testes-1  | [INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.915 s -- in br.com.fiap.esg.bdd.BddApiTest
+testes-1  | [INFO] 
+testes-1  | [INFO] Results:
+testes-1  | [INFO] 
+testes-1  | [INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0
+testes-1  | [INFO] 
+testes-1  | [INFO] ------------------------------------------------------------------------
+testes-1  | [INFO] BUILD SUCCESS
+testes-1  | [INFO] ------------------------------------------------------------------------
+testes-1  | [INFO] Total time:  12.386 s
+testes-1  | [INFO] Finished at: 2026-11-03T00:05:18Z
+testes-1  | [INFO] ------------------------------------------------------------------------
+[Ktestes-1 exited with code 0
+ Compose Stopping Aborting on container exit...
+ Container cidades-inteligentes-testes-1 Stopping 
+ Container cidades-inteligentes-testes-1 Stopped 
+ Container cidades-inteligentes-app-1 Stopping 
+app-1     | 2026-11-02T21:05:18.911-03:00  INFO 1 --- [cidades-esg-inteligentes] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+app-1     | 2026-11-02T21:05:18.913-03:00  INFO 1 --- [cidades-esg-inteligentes] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+app-1     | 2026-11-02T21:05:18.930-03:00  INFO 1 --- [cidades-esg-inteligentes] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+ Container cidades-inteligentes-app-1 Stopped 
+ Container cidades-inteligentes-db-1 Stopping 
+[Kapp-1 exited with code 143
+db-1      | 2026-11-03 00:05:19.072 UTC [1] LOG:  received fast shutdown request
+db-1      | 2026-11-03 00:05:19.072 UTC [1] LOG:  aborting any active transactions
+db-1      | 2026-11-03 00:05:19.075 UTC [1] LOG:  background worker "logical replication launcher" (PID 62) exited with exit code 1
+db-1      | 2026-11-03 00:05:19.077 UTC [57] LOG:  shutting down
+db-1      | 2026-11-03 00:05:19.077 UTC [57] LOG:  checkpoint starting: shutdown immediate
+db-1      | 2026-11-03 00:05:19.079 UTC [57] LOG:  checkpoint complete: wrote 72 buffers (0.4%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.002 s; sync files=49, longest=0.001 s, average=0.000 s; distance=218 kB, estimate=218 kB; lsn=0/195C748, redo lsn=0/195C748
+db-1      | 2026-11-03 00:05:19.086 UTC [1] LOG:  database system is shut down
+ Container cidades-inteligentes-db-1 Stopped 
+[Kdb-1 exited with code 0
+ Container cidades-inteligentes-testes-1 Stopping 
+ Container cidades-inteligentes-testes-1 Stopped 
+ Container cidades-inteligentes-testes-1 Removing 
+ Container cidades-inteligentes-testes-1 Removed 
+ Container cidades-inteligentes-app-1 Stopping 
+ Container cidades-inteligentes-app-1 Stopped 
+ Container cidades-inteligentes-app-1 Removing 
+ Container cidades-inteligentes-app-1 Removed 
+ Container cidades-inteligentes-db-1 Stopping 
+ Container cidades-inteligentes-db-1 Stopped 
+ Container cidades-inteligentes-db-1 Removing 
+ Container cidades-inteligentes-db-1 Removed 
+ Network cidades-inteligentes_default Removing 
+ Network cidades-inteligentes_default Removed 
+Relatorio: relatorios-testes/cucumber.html
