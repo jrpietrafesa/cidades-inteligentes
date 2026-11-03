@@ -262,6 +262,10 @@ BASE_URL=http://localhost:8080 mvn test -Dtest=BddApiTest
 
 **Opção 3: no GitHub Actions.** O workflow `.github/workflows/testes-automatizados.yml` roda a cada push nos dois ambientes e publica os relatórios como artefatos.
 
+### Evidências
+
+A documentação completa está em `docs/Documentacao-Testes-Automatizados.pdf`. Os relatórios HTML e os logs das execuções estão em `docs/evidencias-testes/`.
+
 ### Relação com ESG
 
 - **Ambiental (`@ambiental`):** meta diária de consumo, acúmulo de leituras, geração de alertas e emissão estimada de CO₂.
