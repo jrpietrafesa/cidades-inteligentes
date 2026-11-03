@@ -28,6 +28,12 @@ jobs:
           java-version: ${{ env.JAVA_VERSION }}
           cache: maven
 
+      - name: Executar somente os cenarios negativos (filtro por tag)
+        shell: bash
+        run: |
+          mkdir -p evidencias
+          mvn -B test -Dtest=BddApiTest -Dcucumber.filter.tags="@negativo" 2>&1 | tee evidencias/execucao-negativos.log
+
       - name: Executar testes (mvn verify)
         shell: bash
         run: |
